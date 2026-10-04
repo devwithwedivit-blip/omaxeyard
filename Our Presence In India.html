@@ -6,15 +6,15 @@
 <style>
 :root{--bg:#f3f0ea;--ink:#13233a;--mute:#6b7686;--off:#f8f6f1;--line:#2c3644;--blue:#1c5aa6;--blue-d:#0a3a7c;--red:#c63a32;--card:#fff;--edge:#e1dcd0;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1520;--ink:#eaf0f8;--mute:#93a1b4;--off:#1a2434;--line:#8a9cb3;--blue:#3d82e0;--blue-d:#7db0ff;--card:#142033;--edge:#27364b}}
+/* Dark theme only via header toggle (data-theme attribute), not system preference */
 :root[data-theme="dark"]{--bg:#0d1520;--ink:#eaf0f8;--mute:#93a1b4;--off:#1a2434;--line:#8a9cb3;--blue:#3d82e0;--blue-d:#7db0ff;--card:#142033;--edge:#27364b}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+html,body{scroll-padding-top:env(safe-area-inset-top,0px);overflow-x:hidden}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Jost,system-ui,sans-serif;padding:48px 5vw 56px}
 header{text-align:center;margin-bottom:28px}
 h1{font:600 clamp(2rem,4.5vw,3.1rem)/1.1 "Cormorant Garamond",Georgia,serif;margin:0 auto;display:inline-block;padding:0 3rem 12px;border-bottom:1px solid var(--ink);letter-spacing:.02em}
 header p{margin:14px 0 0;color:var(--mute);font-size:.95rem}
-#stage{position:relative;max-width:1180px;margin:0 auto}
+#stage{position:relative;max-width:1180px;margin:0 auto;container-type:inline-size}
 #map{display:block;width:56%;height:auto;margin:0 auto;overflow:visible}
 .s{fill:var(--off);stroke:var(--line);stroke-width:.9;stroke-linejoin:round;pointer-events:none}
 .s.b{fill:var(--blue);stroke:var(--off);stroke-width:1.2;pointer-events:auto;cursor:pointer;transition:fill .35s,transform .45s cubic-bezier(.25,1.4,.4,1),filter .35s;transform-box:fill-box;transform-origin:center}
@@ -38,8 +38,10 @@ header p{margin:14px 0 0;color:var(--mute);font-size:.95rem}
 .card.L{--dx:-16px}
 @media (max-width:960px){
  #map{width:100%}
- #lines{display:none}
- .card{position:static!important;width:auto;margin:20px auto 0;max-width:420px}
+ .card{position:absolute!important;width:44cqw;max-width:46%;padding:2.2cqw 2.6cqw 2cqw;border-radius:clamp(3px,0.8cqw,5px);border-top-width:clamp(2px,0.7cqw,3px);box-shadow:0 8px 24px rgba(10,30,60,.18)}
+ .card h3{margin:0 0 1.4cqw;font-size:clamp(10px,3cqw,15px);letter-spacing:.1em}
+ .card li.feat{font-size:clamp(13.5px,4.3cqw,22px);font-weight:700;padding:1.2cqw 0 1.8cqw;letter-spacing:.01em}
+ .card li{padding:1cqw 0;font-size:clamp(9.5px,2.7cqw,14px)}
 }
 @media (max-width:600px){
  body{padding:24px 16px 36px}
@@ -71,18 +73,83 @@ order.forEach(function(n){
  g.appendChild(p);els[n]=p;
  if(n==='Delhi'){var h=mk(n,'hit');h.addEventListener('click',function(e){e.stopPropagation();sel(n)});g.appendChild(h)}});
 function close(){if(cur){cur.classList.remove('on');order.forEach(function(n){if(D[n])g.appendChild(els[n])});g.appendChild(g.querySelector('.hit'))}cur=null;top_.innerHTML='';if(card){card.remove();card=null}lines.innerHTML=''}
+function getCardSideAndTop(n, isMobile){
+ var d=D[n];
+ if(!isMobile) return {side:d.side, top:d.top};
+ var side=d.side, top=d.top;
+ var xy=P.s[n].c.split(' ');
+ var cxPct=parseFloat(xy[0])/10;
+ var cyPct=parseFloat(xy[1])/11.16;
+ if(side==='L' && cxPct < 46){
+  side='R';
+ } else if(side==='R' && cxPct > 54){
+  side='L';
+ }
+ if(n==='Uttar Pradesh'){
+  top=26;
+ } else {
+  top=Math.max(4, Math.min(62, cyPct - 10));
+ }
+ return {side:side, top:top};
+}
+function updateCardPos(n, p){
+ var isMobile = stage.offsetWidth <= 960;
+ var pos = getCardSideAndTop(n, isMobile);
+ card.className = 'card ' + pos.side;
+ if(isMobile){
+  var stateRect = p.getBoundingClientRect();
+  var cardRect = card.getBoundingClientRect();
+  var overlap = !(cardRect.right < stateRect.left || cardRect.left > stateRect.right || cardRect.bottom < stateRect.top || cardRect.top > stateRect.bottom);
+  if(overlap){
+   card.className = 'card ' + (card.classList.contains('L') ? 'R' : 'L');
+  }
+  var stageH = stage.offsetHeight;
+  var cardH = card.offsetHeight;
+  var topPx = (pos.top / 100) * stageH;
+  if(topPx + cardH > stageH - 8){
+   topPx = Math.max(8, stageH - cardH - 8);
+  }
+  if(topPx < 8) topPx = 8;
+  card.style.top = topPx + 'px';
+ } else {
+  card.style.top = D[n].top + '%';
+ }
+}
 function sel(n){
  if(cur===els[n]){close();return}
  close();var p=els[n];cur=p;p.classList.add('on');top_.appendChild(p);
- var d=D[n];card=document.createElement('div');card.className='card '+d.side;card.style.top=d.top+'%';
+ var d=D[n];
+ card=document.createElement('div');
+ var isMobile=stage.offsetWidth<=960;
+ var pos=getCardSideAndTop(n, isMobile);
+ card.className='card '+pos.side;
+ card.style.top=pos.top+'%';
+ card.addEventListener('click',function(e){e.stopPropagation()});
  var h=document.createElement('h3');h.textContent=n;card.appendChild(h);var u=document.createElement('ul');
  (d.f?[d.f].concat(d.c):d.c).forEach(function(c,i){var l=document.createElement('li');l.textContent=c;if(d.f&&i===0)l.className='feat';l.style.animationDelay=(.25+i*.06)+'s';u.appendChild(l)});card.appendChild(u);stage.appendChild(card);
+ if(isMobile) updateCardPos(n, p);
  requestAnimationFrame(function(){line(n)})}
 function line(n){lines.innerHTML='';if(!card)return;var w=stage.getBoundingClientRect(),s=map.getBoundingClientRect(),r=card.getBoundingClientRect(),k=s.width/P.W,xy=P.s[n].c.split(' ');
- var x1=s.left-w.left+xy[0]*k,y1=s.top-w.top+xy[1]*k,x2=D[n].side==='L'?r.right-w.left:r.left-w.left,y2=r.top-w.top+24;
+ var x1=s.left-w.left+xy[0]*k,y1=s.top-w.top+xy[1]*k;
+ var isL=card.classList.contains('L');
+ var x2=isL?(r.right-w.left):(r.left-w.left);
+ var h3=card.querySelector('h3');
+ var y2=h3?(h3.getBoundingClientRect().top-w.top+h3.offsetHeight/2):(r.top-w.top+20);
  var l=document.createElementNS(NS,'line');l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);l.style.setProperty('--len',Math.hypot(x2-x1,y2-y1)+2);
  var c=document.createElementNS(NS,'circle');c.setAttribute('cx',x1);c.setAttribute('cy',y1);c.setAttribute('r',3.5);lines.appendChild(l);lines.appendChild(c)}
 document.addEventListener('click',close);
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
-addEventListener('resize',function(){for(var n in els)if(els[n]===cur)line(n)});
+function reposition(){
+ if(!cur||!card)return;
+ for(var n in els){
+  if(els[n]===cur){
+   updateCardPos(n, cur);
+   line(n);
+   break;
+  }
+ }
+}
+window.addEventListener('resize',reposition);
+window.addEventListener('orientationchange',function(){setTimeout(reposition,60);setTimeout(reposition,250)});
+if(window.screen&&window.screen.orientation){window.screen.orientation.addEventListener('change',function(){setTimeout(reposition,60);setTimeout(reposition,250)})}
 </script></body></html>
