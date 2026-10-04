@@ -30,7 +30,13 @@ header p{margin:14px 0 0;color:var(--mute);font-size:.95rem}
 .glass h2{font:600 7.6cqw/1.1 "Cormorant Garamond",Georgia,serif;margin:0 0 1cqw}
 .glass .role{margin:0 0 2.4cqw;padding-bottom:2.4cqw;border-bottom:1px solid rgba(255,255,255,.3);font-weight:600;font-size:4.2cqw;letter-spacing:.04em;color:#cfe3ff}
 .glass .d{margin:0;font-size:4.5cqw;line-height:1.45;color:#f2f6fb}
-@media (max-width:700px){.row{grid-template-columns:1fr;max-width:340px}}
+@media (max-width:960px){.row{grid-template-columns:repeat(2,1fr);max-width:680px}}
+@media (max-width:600px){
+  body{padding:28px 4vw 40px}
+  header{margin-bottom:24px}
+  h1{padding:0 1.5rem 8px;font-size:clamp(1.75rem,5vw,2.4rem)}
+  .row{grid-template-columns:1fr;max-width:340px}
+}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
 </style></head><body>
 <header><h1>Our Leadership</h1><p>Select a portrait to read more.</p></header>

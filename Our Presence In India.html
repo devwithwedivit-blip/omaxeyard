@@ -36,10 +36,15 @@ header p{margin:14px 0 0;color:var(--mute);font-size:.95rem}
 @keyframes cin{from{opacity:0;transform:translateX(var(--dx,16px))}to{opacity:1;transform:none}}
 @keyframes lin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .card.L{--dx:-16px}
-@media (max-width:760px){
+@media (max-width:960px){
  #map{width:100%}
  #lines{display:none}
  .card{position:static!important;width:auto;margin:20px auto 0;max-width:420px}
+}
+@media (max-width:600px){
+ body{padding:24px 16px 36px}
+ header{margin-bottom:20px}
+ h1{padding:0 1.2rem 8px;font-size:clamp(1.75rem,5vw,2.4rem)}
 }
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
 </style></head><body>
