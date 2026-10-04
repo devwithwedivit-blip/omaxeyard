@@ -215,6 +215,180 @@ table.grid td{border:1px solid var(--line);padding:14px}
 :root[data-theme="dark"] .time-pill{background:rgba(22,82,77,0.35);color:#a8dfd8}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .dist-icon{background:rgba(22,82,77,0.3);color:#a8dfd8}:root:not([data-theme="light"]) .time-pill{background:rgba(22,82,77,0.35);color:#a8dfd8}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.001ms!important;transition-duration:0.001ms!important}}
+
+/* ==========================================================================
+   Site Notice Bar (Cookie & Disclaimer Banner)
+   ========================================================================== */
+.site-notice {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translate3d(-50%, calc(100% + 32px), 0);
+  width: min(1200px, calc(100% - 32px));
+  z-index: 99999;
+  background: #0f1e36;
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.45), 0 -2px 12px rgba(0, 0, 0, 0.2);
+  padding: 14px 20px;
+  box-sizing: border-box;
+  font-family: Figtree, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.site-notice.is-visible {
+  transform: translate3d(-50%, 0, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.site-notice-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.site-notice-text {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #e2e8f0;
+  flex: 1 1 auto;
+}
+
+.site-notice-text a {
+  color: #93c5fd;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.site-notice-text a:hover {
+  color: #bfdbfe;
+}
+
+.site-notice-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.site-notice-btn {
+  background: #0B4A8F;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 9px 20px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(11, 74, 143, 0.4);
+  transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.site-notice-btn:hover {
+  background: #093c75;
+  box-shadow: 0 4px 10px rgba(11, 74, 143, 0.5);
+  transform: translateY(-1px);
+}
+
+.site-notice-btn:active {
+  transform: translateY(0);
+}
+
+.site-notice-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.site-notice-close:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.site-notice-btn:focus-visible,
+.site-notice-close:focus-visible,
+.site-notice-text a:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .site-notice {
+    bottom: 0;
+    left: 0;
+    transform: translate3d(0, 110%, 0);
+    width: 100%;
+    max-width: 100%;
+    border-radius: 14px 14px 0 0;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    padding: 12px 16px 14px;
+  }
+  .site-notice.is-visible {
+    transform: translate3d(0, 0, 0);
+  }
+  .site-notice-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    position: relative;
+  }
+  .site-notice-text {
+    font-size: 13.5px;
+    line-height: 1.45;
+    padding-right: 32px;
+  }
+  .site-notice-actions {
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+  }
+  .site-notice-btn {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 14px;
+    text-align: center;
+  }
+  .site-notice-close {
+    position: absolute;
+    top: -2px;
+    right: -4px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-notice {
+    transition: none !important;
+  }
+  body {
+    transition: none !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -1145,6 +1319,116 @@ window.addEventListener('resize', () => {
   const f = document.querySelector('.leadership-frame-card iframe');
   if (f) resizeLeadershipIframe(f);
 });
+</script>
+
+<!-- Site Notice Bar -->
+<div id="site-notice" class="site-notice" role="region" aria-label="Site notice" style="display:none;">
+  <div class="site-notice-wrap">
+    <p class="site-notice-text" id="site-notice-text"></p>
+    <div class="site-notice-actions">
+      <button type="button" class="site-notice-btn" id="notice-accept-btn">Accept</button>
+      <button type="button" class="site-notice-close" id="notice-close-btn" aria-label="Close notice">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ==========================================================================
+// Site Notice Bar Configuration & Logic
+// Put the notice text in one variable at the top so it's easy to change
+// ==========================================================================
+const NOTICE_TEXT = 'This website uses cookies to improve your experience. By continuing, you agree to our <a href="#privacy">Privacy Policy</a> and <a href="#terms">Terms & Conditions</a>.';
+const NOTICE_REAPPEAR_DAYS = 30; // Number of days to remember dismissal before reappearing (set to 0 or null to never reappear)
+
+(function() {
+  const STORAGE_KEY = 'noticeDismissed';
+  const notice = document.getElementById('site-notice');
+  const textEl = document.getElementById('site-notice-text');
+  const acceptBtn = document.getElementById('notice-accept-btn');
+  const closeBtn = document.getElementById('notice-close-btn');
+
+  function isDismissed() {
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (!stored) return false;
+      let data;
+      try {
+        data = JSON.parse(stored);
+      } catch (_) {
+        data = { dismissed: stored === 'true', timestamp: 0 };
+      }
+      if (data && data.dismissed) {
+        if (NOTICE_REAPPEAR_DAYS && NOTICE_REAPPEAR_DAYS > 0 && data.timestamp) {
+          const daysPassed = (Date.now() - data.timestamp) / (1000 * 60 * 60 * 24);
+          if (daysPassed >= NOTICE_REAPPEAR_DAYS) {
+            return false; // 30 days elapsed; show notice again
+          }
+        }
+        return true;
+      }
+      return false;
+    } catch (e) {
+      // localStorage may be disabled or blocked
+      return false;
+    }
+  }
+
+  function saveDismissal() {
+    try {
+      const data = {
+        dismissed: true,
+        timestamp: Date.now()
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {}
+  }
+
+  function updatePagePadding() {
+    if (notice && notice.classList.contains('is-visible')) {
+      const height = notice.offsetHeight;
+      const extraGap = window.innerWidth > 640 ? 16 : 0;
+      document.body.style.paddingBottom = (height + extraGap) + 'px';
+      document.body.style.transition = 'padding-bottom 0.4s ease';
+    } else {
+      document.body.style.paddingBottom = '';
+    }
+  }
+
+  function showNotice() {
+    if (isDismissed() || !notice) return;
+    if (textEl) textEl.innerHTML = NOTICE_TEXT;
+    notice.style.display = 'block';
+    void notice.offsetHeight; // force reflow for smooth slide-up
+    notice.classList.add('is-visible');
+    updatePagePadding();
+  }
+
+  function dismissNotice() {
+    saveDismissal();
+    if (!notice) return;
+    notice.classList.remove('is-visible');
+    document.body.style.paddingBottom = '';
+    setTimeout(function() {
+      notice.style.display = 'none';
+    }, 420);
+  }
+
+  if (acceptBtn) acceptBtn.addEventListener('click', dismissNotice);
+  if (closeBtn) closeBtn.addEventListener('click', dismissNotice);
+
+  document.addEventListener('keydown', function(e) {
+    if ((e.key === 'Escape' || e.key === 'Esc') && notice && notice.classList.contains('is-visible')) {
+      dismissNotice();
+    }
+  });
+
+  window.addEventListener('resize', updatePagePadding);
+
+  // Slide up smoothly (~0.4s) about 1 second after page loads
+  setTimeout(showNotice, 1000);
+})();
 </script>
 </body>
 </html>
