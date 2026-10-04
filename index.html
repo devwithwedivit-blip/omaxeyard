@@ -113,6 +113,11 @@ footer p{margin:0;max-width:60ch;opacity:.85}
 .presence-frame-card iframe{width:100%;height:1060px;border:none;display:block;overflow:hidden}
 @media(max-width:760px){.presence-frame-card iframe{height:1140px}}
 
+/* Leadership Frame Card in About Us Section */
+.leadership-frame-card{margin-top:40px;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 36px -6px rgba(0,0,0,0.08);position:relative}
+.leadership-frame-card iframe{width:100%;height:840px;border:none;display:block;overflow:hidden}
+@media(max-width:700px){.leadership-frame-card iframe{height:1880px}}
+
 
 header .logo small{font:500 14px Figtree;color:var(--mute)}
 .btn.sm{padding:8px 14px;font-size:14px}
@@ -436,6 +441,21 @@ table.grid td{border:1px solid var(--line);padding:14px}
 
     </div>
 
+  </div>
+
+  <!-- Interactive Our Leadership (Embedded from Our Leadership.html as provided) -->
+  <div class="leadership-frame-card">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--line);background:rgba(0,0,0,0.02);font-size:13.5px;font-weight:600;color:var(--mute);flex-wrap:wrap;gap:10px">
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#0b4a8f"></span>
+        <span>Executive Board &bull; Click any portrait to view leadership details</span>
+      </div>
+      <a href="Our%20Leadership.html" target="_blank" rel="noopener noreferrer" style="color:var(--pine);text-decoration:none;display:inline-flex;align-items:center;gap:5px;font-weight:700">
+        Open Standalone
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+      </a>
+    </div>
+    <iframe src="Our%20Leadership.html" title="Our Leadership - Executive Board" scrolling="no" loading="lazy" onload="resizeLeadershipIframe(this)"></iframe>
   </div>
 
   <!-- Dedicated Plot Sizes Showcase -->
@@ -1113,6 +1133,24 @@ function selectPlotSize(size) {
     if (nameInput) setTimeout(() => nameInput.focus(), 450);
   }
 }
+
+// Auto-resize leadership iframe
+function resizeLeadershipIframe(el) {
+  try {
+    const doc = el.contentDocument || el.contentWindow.document;
+    if (doc) {
+      const row = doc.getElementById('row');
+      if (row) {
+        const bottom = Math.ceil(row.getBoundingClientRect().bottom + 72);
+        el.style.height = bottom + 'px';
+      }
+    }
+  } catch(e) {}
+}
+window.addEventListener('resize', () => {
+  const f = document.querySelector('.leadership-frame-card iframe');
+  if (f) resizeLeadershipIframe(f);
+});
 </script>
 </body>
 </html>
