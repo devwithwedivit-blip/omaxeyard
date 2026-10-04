@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Omaxe Bareilly | Plots and homes in Bareilly</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#f4f6f5;--ink:#14201f;--mute:#4d5f5c;--pine:#0f3b38;--pine-ink:#f4f6f5;--kite:#d6403a;--gold:#e8a317;--line:#cfd8d5;--card:#ffffff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1514;--ink:#e9f0ee;--mute:#9db0ac;--pine:#16524d;--line:#243532;--card:#142120}}
+:root[data-theme="dark"]{--bg:#0d1514;--ink:#e9f0ee;--mute:#9db0ac;--pine:#16524d;--line:#243532;--card:#142120}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:Gloock,Georgia,serif;font-weight:400;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.container, .wrap{max-width:1400px;width:100%;margin-inline:auto;padding-inline:clamp(16px,4vw,48px)}
+.two > .lead, .two .lead{max-width:100%}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:#ffffff;border-bottom:1px solid var(--line)}
+header .wrap, header .container{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{display:inline-flex;align-items:center;text-decoration:none;cursor:pointer}
+.logo img{height:42px;width:auto;max-height:44px;object-fit:contain;display:block;filter:brightness(0.92);transition:filter 0.4s ease,transform 0.4s ease}
+.logo:hover img{animation:brightenDim 2s ease-in-out infinite alternate;transform:scale(1.05)}
+@keyframes brightenDim{0%{filter:brightness(1.04) contrast(1.02) drop-shadow(0 2px 8px rgba(0,95,166,0.2));}100%{filter:brightness(1.32) contrast(1.08) drop-shadow(0 4px 20px rgba(0,95,166,0.45));}}
+.logo:active img{animation:none;filter:brightness(0.85);transform:scale(0.98)}
+nav{display:flex;gap:22px;font-size:15px;font-weight:500}
+nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
+.btn{display:inline-block;background:var(--kite);color:#fff;padding:12px 22px;border-radius:4px;font-weight:700;text-decoration:none;border:0;font:700 16px Figtree,sans-serif;cursor:pointer}
+.btn.alt{background:transparent;color:inherit;border:1.5px solid currentColor}
+.hero{background:var(--pine);color:var(--pine-ink);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;min-height:560px;padding-top:56px;padding-bottom:56px}
+.hero h1{font-size:clamp(38px,6vw,68px)}
+.hero p{max-width:46ch;font-size:19px;opacity:.9;margin:22px 0 30px}
+.hero .row{display:flex;gap:12px;flex-wrap:wrap}
+.hero-logo-bg{display:flex;align-items:center;justify-content:center;position:relative;min-height:440px;width:100%}
+.hero-anim-logo{width:min(440px,90%);height:auto;display:block;margin:0 auto;filter:drop-shadow(0 14px 35px rgba(0,0,0,0.35));cursor:pointer;transition:transform 0.3s ease}
+.hero-anim-logo:hover{transform:scale(1.03)}
+.hero-anim-logo .hand{animation:hand 1.6s .4s cubic-bezier(.2,.7,.2,1) both}
+.hero-anim-logo .house{animation:house 1.8s 1.8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes hand{from{opacity:0;transform:translateY(160px)}to{opacity:1;transform:none}}
+@keyframes house{from{opacity:0;transform:translateY(150px) scale(.92);transform-origin:860px 450px}to{opacity:1;transform:none;transform-origin:860px 450px}}
+@media(prefers-reduced-motion:reduce){.hero-anim-logo .hand,.hero-anim-logo .house{animation:none}}
+section{padding:76px 0}
+section h2{font-size:clamp(30px,4vw,44px);margin-bottom:18px}
+.lead{max-width:62ch;color:var(--mute)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+table{width:100%;border-collapse:collapse;margin-top:24px;font-size:16px}
+th,td{text-align:left;padding:14px 12px;border-bottom:1px solid var(--line)}
+th{font-weight:700;color:var(--mute);font-size:14px}
+.scroll{overflow-x:auto}
+.am{columns:2;column-gap:40px;padding:0;list-style:none;margin:20px 0 0}
+.am li{padding:9px 0;border-bottom:1px solid var(--line);break-inside:avoid}
+.tbd{color:var(--kite);font-weight:500}
+.band{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+form{display:grid;gap:14px;max-width:460px}
+label{font-weight:500;font-size:15px;display:grid;gap:6px}
+input,select{font:inherit;padding:12px;border:1.5px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink)}
+footer{background:var(--pine);color:var(--pine-ink);padding:40px 0;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer p{margin:0;max-width:60ch;opacity:.85}
+@media(max-width:760px){nav{display:none}.hero .wrap,.hero .container,.two{grid-template-columns:1fr}.hero-logo-bg{min-height:300px;order:-1;margin-bottom:16px}.am{columns:1}section{padding:56px 0}}
+#connectivity{padding-bottom:40px}
+
+header .logo small{font:500 14px Figtree;color:var(--mute)}
+.btn.sm{padding:8px 14px;font-size:14px}
+.hero .wrap{min-height:520px}
+.card{background:var(--bg);color:var(--ink);border:3px solid var(--gold);border-radius:6px;padding:20px;display:grid;gap:12px;max-width:340px;text-align:center}
+.card .pill{background:var(--pine);color:var(--pine-ink);padding:10px;border-radius:4px;font-family:Gloock,serif;font-size:19px}
+.card .addr{margin:0;font-size:15px;color:var(--mute)}
+.card .chk{display:flex;gap:8px;font-size:13px;text-align:left;align-items:flex-start}
+.card .chk input{margin-top:3px}
+.rera{background:var(--card);border:1px solid var(--line);padding:10px;font-size:13px;border-radius:4px}
+.sh{text-align:center;font-size:clamp(28px,4vw,38px);margin-bottom:28px;padding-bottom:12px;border-bottom:3px solid var(--kite);width:fit-content;margin-inline:auto}
+.ph{min-height:220px;border:2px dashed var(--line);display:grid;place-items:center;color:var(--mute);text-align:center;padding:16px;border-radius:4px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+table.grid td{border:1px solid var(--line);padding:14px}
+.cta{background:var(--pine);color:var(--pine-ink);padding:34px 0;width:100%}
+.cta .wrap, .cta .container{display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta p{margin:0;font:400 22px Gloock,serif;max-width:68ch}
+.am.one{columns:1}
+.card input:not([type=checkbox]){text-align:left}
+/* Image Showcase & Gallery Styles */
+.hero-card{position:relative;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:0 8px 24px -4px rgba(0,0,0,0.08);margin-bottom:32px;cursor:pointer;transition:transform 0.4s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.4s ease}
+.hero-card:hover{transform:translateY(-2px);box-shadow:0 16px 36px -6px rgba(0,0,0,0.16)}
+.hero-media-wrap{position:relative;width:100%;aspect-ratio:16/9;max-height:500px;overflow:hidden;background:var(--card)}
+.hero-media-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s cubic-bezier(0.2,0.8,0.2,1)}
+.hero-card:hover .hero-media-wrap img{transform:scale(1.025)}
+.hero-overlay-card{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,35,33,0.9) 0%,rgba(15,35,33,0.35) 55%,transparent 85%);display:flex;align-items:flex-end;padding:clamp(20px,4vw,38px);color:#ffffff}
+.hero-content-flex{display:flex;justify-content:space-between;align-items:flex-end;width:100%;gap:18px;flex-wrap:wrap}
+.hero-badge-tag{display:inline-block;background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);padding:4px 12px;border-radius:999px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px}
+.hero-card-title{font-family:Gloock,serif;font-size:clamp(22px,3vw,34px);line-height:1.2;margin-bottom:6px;color:#fff}
+.hero-card-sub{font-size:15px;opacity:0.92;line-height:1.4;max-width:620px}
+.hero-view-btn{display:inline-flex;align-items:center;gap:8px;background:#ffffff;color:#14201f;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,0.25);transition:all 0.2s}
+.hero-card:hover .hero-view-btn{background:var(--pine);color:#fff}
+
+.filter-tabs{display:flex;gap:10px;margin-bottom:26px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.filter-tabs::-webkit-scrollbar{display:none}
+.filter-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--mute);font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all 0.25s}
+.filter-btn:hover{color:var(--ink);border-color:var(--pine)}
+.filter-btn.active{background:var(--pine);color:#ffffff;border-color:var(--pine);box-shadow:0 3px 12px rgba(15,59,56,0.3)}
+.filter-count{font-size:11px;opacity:0.85;background:rgba(0,0,0,0.06);padding:2px 7px;border-radius:999px}
+.filter-btn.active .filter-count{background:rgba(255,255,255,0.25)}
+
+.masonry-grid{column-count:4;column-gap:20px}
+@media(max-width:1024px){.masonry-grid{column-count:2}}
+@media(max-width:580px){.masonry-grid{column-count:1}}
+
+.gallery-card{break-inside:avoid;margin-bottom:20px;border-radius:12px;overflow:hidden;position:relative;background:var(--card);border:1px solid var(--line);box-shadow:0 2px 8px rgba(0,0,0,0.04);cursor:pointer;transition:transform 0.35s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.35s ease,opacity 0.3s ease}
+.gallery-card:hover{transform:scale(1.03);box-shadow:0 12px 28px -6px rgba(0,0,0,0.18);z-index:2}
+.card-media-wrap{position:relative;width:100%;background:linear-gradient(90deg,var(--bg) 25%,var(--line) 50%,var(--bg) 75%);background-size:200% 100%;animation:skeletonPulse 1.8s ease-in-out infinite}
+.card-media-wrap.loaded{animation:none;background:transparent}
+@keyframes skeletonPulse{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.card-media-wrap img{width:100%;height:auto;display:block;transition:transform 0.5s cubic-bezier(0.2,0.8,0.2,1)}
+.gallery-card:hover .card-media-wrap img{transform:scale(1.04)}
+
+.card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,35,33,0.92) 0%,rgba(15,35,33,0.45) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:16px;color:#ffffff;opacity:0;transform:translateY(6px);transition:opacity 0.3s ease,transform 0.3s cubic-bezier(0.2,0.8,0.2,1)}
+.gallery-card:hover .card-overlay,.gallery-card:focus-visible .card-overlay{opacity:1;transform:translateY(0)}
+.card-category{display:inline-block;background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);color:#ffffff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;padding:3px 8px;border-radius:4px;margin-bottom:6px;width:fit-content}
+.card-title{font-size:15px;font-weight:600;line-height:1.3;margin-bottom:4px;color:#fff}
+.card-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;opacity:0.85}
+.view-icon{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.25);backdrop-filter:blur(4px)}
+
+.lightbox-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,20,19,0.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity 0.3s cubic-bezier(0.2,0.8,0.2,1),visibility 0.3s}
+.lightbox-modal.active{opacity:1;visibility:visible}
+.lightbox-topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;color:#ffffff;z-index:10}
+.lightbox-counter{font-size:14px;font-weight:600;opacity:0.9;background:rgba(255,255,255,0.15);padding:4px 12px;border-radius:999px}
+.lightbox-caption-area{text-align:center;max-width:600px;padding:0 16px}
+.lightbox-title{font-size:16px;font-weight:600}
+.lightbox-cat{font-size:12px;opacity:0.75;text-transform:uppercase;letter-spacing:0.5px}
+.lightbox-actions{display:flex;align-items:center;gap:12px}
+.lightbox-btn{background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.2);color:#ffffff;width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s}
+.lightbox-btn:hover{background:rgba(255,255,255,0.3);transform:scale(1.08)}
+.lightbox-stage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;padding:12px 60px;user-select:none}
+.lightbox-img-wrapper{max-width:90vw;max-height:72vh;position:relative;display:flex;align-items:center;justify-content:center}
+.lightbox-img{max-width:100%;max-height:72vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 50px rgba(0,0,0,0.6);opacity:0;transform:scale(0.96);transition:opacity 0.3s cubic-bezier(0.2,0.8,0.2,1),transform 0.3s cubic-bezier(0.2,0.8,0.2,1)}
+.lightbox-img.loaded{opacity:1;transform:scale(1)}
+.nav-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.25);color:#ffffff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;z-index:5}
+.nav-arrow:hover{background:rgba(255,255,255,0.35);transform:translateY(-50%) scale(1.1)}
+.nav-prev{left:20px}
+.nav-next{right:20px}
+.lightbox-thumbnails{padding:12px 20px 20px;display:flex;justify-content:center;gap:10px;overflow-x:auto;max-width:100%}
+.thumb-btn{width:64px;height:48px;border-radius:6px;overflow:hidden;border:2px solid transparent;background:transparent;cursor:pointer;opacity:0.5;flex-shrink:0;transition:all 0.2s}
+.thumb-btn img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb-btn:hover{opacity:0.85}
+.thumb-btn.active{opacity:1;border-color:var(--gold);transform:scale(1.08)}
+/* Connectivity Styles */
+.connectivity-card{width:100%;max-width:100%;margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 4px 20px -4px rgba(0,0,0,0.06)}
+.connectivity-table{width:100%;border-collapse:collapse;margin:0;font-size:15.5px}
+.connectivity-table th{background:var(--bg);color:var(--ink);font-size:13.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;padding:16px 22px;border-bottom:2px solid var(--line)}
+.connectivity-table td{padding:14px 22px;border-bottom:1px solid var(--line);color:var(--ink)}
+.connectivity-table tr:last-child td{border-bottom:none}
+.connectivity-table tr:hover td{background:rgba(0,95,166,0.03)}
+.dist-dest{display:flex;align-items:center;gap:12px;font-weight:500}
+.dist-icon{width:32px;height:32px;border-radius:8px;background:rgba(0,95,166,0.08);color:var(--pine);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.time-pill{display:inline-block;font-weight:700;font-size:14px;color:var(--pine);background:rgba(15,59,56,0.08);padding:4px 14px;border-radius:999px;white-space:nowrap}
+:root[data-theme="dark"] .dist-icon{background:rgba(22,82,77,0.3);color:#a8dfd8}
+:root[data-theme="dark"] .time-pill{background:rgba(22,82,77,0.35);color:#a8dfd8}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .dist-icon{background:rgba(22,82,77,0.3);color:#a8dfd8}:root:not([data-theme="light"]) .time-pill{background:rgba(22,82,77,0.35);color:#a8dfd8}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.001ms!important;transition-duration:0.001ms!important}}
+</style>
+</head>
+<body>
+<header><div class="container wrap">
+<a class="logo" href="#top" aria-label="Omaxe Bareilly"><img src="omaxe-logo.png" alt="Omaxe Authorised Channel Partner"></a>
+<nav aria-label="Main"><a href="#overview">Overview</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#plans">Floor plans</a><a href="#location">Location</a><a href="#enquire">Contact</a></nav>
+<div style="display:flex;align-items:center;gap:12px">
+<button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle light and dark mode" style="padding:6px 14px;font-size:13px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s">
+  <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <span id="themeLabel">Dark Mode</span>
+</button>
+<a class="btn alt sm" href="#enquire">Brochure</a>
+</div>
+</div></header>
+<main id="top">
+<div class="hero"><div class="container wrap">
+<form id="f" class="card" aria-label="Enquiry form">
+<div class="pill">Project name here</div>
+<b>Residential township</b>
+<p class="addr">Moradabad-Bareilly Expressway, Bareilly <span class="tbd">[confirm]</span></p>
+<b>Enquire now</b>
+<input name="n" placeholder="Full name" required autocomplete="name" aria-label="Full name">
+<input name="p" type="tel" placeholder="Phone" required autocomplete="tel" aria-label="Phone">
+<label class="chk"><input type="checkbox" required checked> I agree to be contacted about this project</label>
+<button class="btn" type="submit">Submit</button>
+<div class="rera">RERA no: <span class="tbd">[add]</span><br>Check at www.up-rera.in</div>
+</form>
+<div class="hero-logo-bg" aria-hidden="true">
+<svg id="heroLogoAnim" class="hero-anim-logo" viewBox="400 110 800 700" role="img" aria-label="Omaxe Bareilly animated logo: a hand holding a house">
+<g class="house" fill="#ffcc00">
+<polyline points="560,365 860,150 1140,365" fill="none" stroke="#ffcc00" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="606" y="372" width="42" height="133" rx="3"/>
+<rect x="1056" y="372" width="40" height="220" rx="3"/>
+<rect x="632" y="184" width="80" height="120" rx="12"/>
+<rect x="796" y="345" width="46" height="46" rx="4"/><rect x="872" y="345" width="46" height="46" rx="4"/>
+<rect x="796" y="419" width="46" height="46" rx="4"/><rect x="872" y="419" width="46" height="46" rx="4"/>
+</g>
+<path class="hand" fill="#ffcc00" d="M415 522Q413 511 428 511L532 511Q545 511 546 526L549 535L640 535C700 535 730 550 770 568C820 590 870 595 925 594C962 594 970 625 940 647C930 655 915 655 900 655L757 655C740 655 740 683 757 683L920 683C945 683 955 675 975 665C1050 630 1110 610 1150 596C1182 588 1192 612 1170 628L905 772C860 796 820 796 780 788L556 717L548 722L548 740Q548 749 538 749L490 749Q480 749 477 740L447 665C435 620 425 585 415 522Z"/>
+</svg>
+</div>
+</div></div>
+
+<section id="overview"><div class="container wrap">
+<h2 class="sh">Overview</h2>
+<div class="two">
+<div class="lead">
+<p>A residential township in Bareilly with plots and villas for families who want space, safety and a settled neighbourhood. <span class="tbd">[Add: total area, number of plots and villas, possession timeline]</span></p>
+<p>It sits on the Moradabad-Bareilly Expressway, so you can reach the city's main areas without crossing the old town. <span class="tbd">[Confirm with site visit]</span></p>
+<p>Roads, parks and security are planned into the layout from the start, with room for children to play and for older family members to walk.</p>
+</div>
+<div style="border-radius:8px;overflow:hidden;border:1px solid var(--line);box-shadow:0 4px 16px rgba(0,0,0,0.06)">
+  <picture>
+    <source type="image/webp" srcset="images/1.webp">
+    <img src="images/1.jpg" alt="Omaxe Bareilly Villa & Township Project" style="width:100%;height:100%;object-fit:cover;display:block">
+  </picture>
+</div>
+</div></div></section>
+
+<section id="connectivity" class="band"><div class="container wrap">
+<h2 class="sh">Connectivity</h2>
+<p class="lead" style="max-width:76ch;margin:0 auto 24px;text-align:center;font-size:17.5px;line-height:1.65">
+Located right on the Moradabad-Bareilly Expressway, Omaxe Bareilly offers easy access to the rest of the city and beyond. Buses, autos, and taxis are readily available, and both Bareilly Railway Station and Bareilly Airport are within a short drive.
+</p>
+
+<h3 style="text-align:center;font-family:Gloock,serif;font-size:22px;margin:28px 0 16px;color:var(--ink)">Key Distances</h3>
+
+<div class="connectivity-card">
+  <div class="scroll">
+    <table class="connectivity-table">
+      <thead>
+        <tr>
+          <th style="text-align:left">Destination</th>
+          <th style="text-align:right;width:160px">Travel Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="dist-dest">
+              <span class="dist-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19L8 5h8l4 14M4 19h16M12 5v14"/></svg></span>
+              <span>Moradabad-Bareilly Expressway</span>
+            </div>
+          </td>
+          <td style="text-align:right"><span class="time-pill">1 min</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="dist-dest">
+              <span class="dist-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg></span>
+              <span>Phoenix United Mall</span>
+            </div>
+          </td>
+          <td style="text-align:right"><span class="time-pill">10 min</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="dist-dest">
+              <span class="dist-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="16" rx="2"/><path d="M4 11h16M12 3v8M8 19l-2 3M16 19l2 3"/><circle cx="8" cy="15" r="1"/><circle cx="16" cy="15" r="1"/></svg></span>
+              <span>Bareilly Railway Station</span>
+            </div>
+          </td>
+          <td style="text-align:right"><span class="time-pill">15 min</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="dist-dest">
+              <span class="dist-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="15" rx="2"/><path d="M3 9h18M7 18v3M17 18v3"/><circle cx="7" cy="14" r="1"/><circle cx="17" cy="14" r="1"/></svg></span>
+              <span>Bareilly Bus Stand</span>
+            </div>
+          </td>
+          <td style="text-align:right"><span class="time-pill">15 min</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="dist-dest">
+              <span class="dist-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+              <span>DD Puram Residential Area</span>
+            </div>
+          </td>
+          <td style="text-align:right"><span class="time-pill">15 min</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="dist-dest">
+              <span class="dist-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>
+              <span>Bareilly Airport</span>
+            </div>
+          </td>
+          <td style="text-align:right"><span class="time-pill">20 min</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="dist-dest">
+              <span class="dist-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span>
+              <span>Schools &amp; Colleges</span>
+            </div>
+          </td>
+          <td style="text-align:right"><span class="time-pill">10 min</span></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="dist-dest">
+              <span class="dist-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></span>
+              <span>Hospitals &amp; Medical Centers</span>
+            </div>
+          </td>
+          <td style="text-align:right"><span class="time-pill">10 min</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div></section>
+
+<div class="cta"><div class="container wrap"><p>Want the brochure and a site visit? Leave your number and we will call back.</p><a class="btn" href="#top">Enquire now</a></div></div>
+
+<section id="price"><div class="container wrap">
+<h2 class="sh">Price plan</h2>
+<div class="two">
+<div class="scroll"><table>
+<thead><tr><th>Type</th><th>Area</th><th>Price</th><th></th></tr></thead>
+<tbody>
+<tr><td>Plot</td><td class="tbd">[add]</td><td class="tbd">[add]</td><td><a class="btn sm" href="#top">Price breakup</a></td></tr>
+<tr><td>Villa</td><td class="tbd">[add]</td><td class="tbd">[add]</td><td><a class="btn sm" href="#top">Price breakup</a></td></tr>
+<tr><td>Commercial space</td><td class="tbd">[add]</td><td class="tbd">[add]</td><td><a class="btn sm" href="#top">Price breakup</a></td></tr>
+</tbody></table></div>
+<div class="ph">Add the cost sheet and payment schedule</div>
+</div></div></section>
+
+<section id="amenities" class="band"><div class="container wrap">
+<h2 class="sh">Amenities</h2>
+<ul class="am"><li>Wide internal roads</li><li>Gated entry with guard</li><li>Parks and green belt</li><li>Street lighting</li><li>Water and sewer lines</li><li>Underground cabling</li><li>Rainwater drainage</li><li>Community space</li></ul>
+<p class="lead tbd">[Edit to match the approved layout plan]</p>
+</div></section>
+
+<section id="gallery"><div class="container wrap">
+<h2 class="sh" id="plans">Project Showcase &amp; Gallery</h2>
+<p class="lead" style="margin:0 auto 28px;text-align:center">Explore architectural elevations, wide internal avenues, landscaped parks, and master views across Omaxe Bareilly.</p>
+
+<!-- Featured Hero Image -->
+<div class="hero-card" id="heroCard" role="button" tabindex="0" aria-label="Open featured township panorama in full-screen lightbox">
+  <div class="hero-media-wrap">
+    <picture>
+      <source type="image/webp" srcset="images/gallery_1670824275618.webp">
+      <img src="images/gallery_1670824275618.jpg" alt="Aerial panorama of the Omaxe Bareilly township master plan with landscaped parks and modern residential avenues" loading="eager" decoding="async">
+    </picture>
+    <div class="hero-overlay-card">
+      <div class="hero-content-flex">
+        <div>
+          <span class="hero-badge-tag">Featured Overview</span>
+          <h3 class="hero-card-title">Grand Township Panorama</h3>
+          <p class="hero-card-sub">Comprehensive master planned residential community with integrated parks, secure avenues, and world-class leisure facilities.</p>
+        </div>
+        <span class="hero-view-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          View Fullscreen
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Filter Tabs -->
+<div class="filter-tabs" role="tablist" aria-label="Showcase categories">
+  <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Images <span class="filter-count">7</span></button>
+  <button class="filter-btn" data-filter="township" role="tab" aria-selected="false">Township Views <span class="filter-count">3</span></button>
+  <button class="filter-btn" data-filter="architecture" role="tab" aria-selected="false">Architecture <span class="filter-count">2</span></button>
+  <button class="filter-btn" data-filter="amenities" role="tab" aria-selected="false">Amenities <span class="filter-count">2</span></button>
+</div>
+
+<!-- Masonry Grid with Natural Aspect Ratios -->
+<div class="masonry-grid" id="masonryGrid">
+  <div class="gallery-card" data-category="township" data-index="0" tabindex="0" role="button" aria-label="Grand Township Panorama">
+    <div class="card-media-wrap">
+      <picture>
+        <source type="image/webp" srcset="images/gallery_1670824275618.webp">
+        <img src="images/gallery_1670824275618.jpg" alt="Aerial panorama of the Omaxe Bareilly township master plan" loading="lazy" decoding="async" onload="this.closest('.card-media-wrap').classList.add('loaded')">
+      </picture>
+      <div class="card-overlay">
+        <span class="card-category">Township</span>
+        <h4 class="card-title">Grand Township Panorama</h4>
+        <div class="card-meta"><span>Master layout &amp; avenues</span><span class="view-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-card" data-category="architecture" data-index="1" tabindex="0" role="button" aria-label="The Omaxe State Pavilion">
+    <div class="card-media-wrap">
+      <picture>
+        <source type="image/webp" srcset="images/the-omaxe-state-project-project-large-image1-6801-opt-c86a79f3-6f68-4e04-800e-ead1fb5ceb0a.webp">
+        <img src="images/the-omaxe-state-project-project-large-image1-6801-opt-c86a79f3-6f68-4e04-800e-ead1fb5ceb0a.jpg" alt="The Omaxe State architectural facade and commercial promenade" loading="lazy" decoding="async" onload="this.closest('.card-media-wrap').classList.add('loaded')">
+      </picture>
+      <div class="card-overlay">
+        <span class="card-category">Architecture</span>
+        <h4 class="card-title">The Omaxe State Pavilion</h4>
+        <div class="card-meta"><span>Commercial &amp; retail facade</span><span class="view-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-card" data-category="architecture" data-index="2" tabindex="0" role="button" aria-label="Luxury Villa Elevation">
+    <div class="card-media-wrap">
+      <picture>
+        <source type="image/webp" srcset="images/1.webp">
+        <img src="images/1.jpg" alt="Luxury contemporary villa with manicured lawn and private parking" loading="lazy" decoding="async" onload="this.closest('.card-media-wrap').classList.add('loaded')">
+      </picture>
+      <div class="card-overlay">
+        <span class="card-category">Architecture</span>
+        <h4 class="card-title">Luxury Villa Elevation</h4>
+        <div class="card-meta"><span>Duplex villa design</span><span class="view-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-card" data-category="township" data-index="3" tabindex="0" role="button" aria-label="Tree-Lined Boulevard">
+    <div class="card-media-wrap">
+      <picture>
+        <source type="image/webp" srcset="images/2.webp">
+        <img src="images/2.jpg" alt="Tree-lined township boulevard with paved walkways and street lighting" loading="lazy" decoding="async" onload="this.closest('.card-media-wrap').classList.add('loaded')">
+      </picture>
+      <div class="card-overlay">
+        <span class="card-category">Township</span>
+        <h4 class="card-title">Tree-Lined Boulevard</h4>
+        <div class="card-meta"><span>Wide internal avenues</span><span class="view-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-card" data-category="amenities" data-index="4" tabindex="0" role="button" aria-label="Central Green Park & Walkways">
+    <div class="card-media-wrap">
+      <picture>
+        <source type="image/webp" srcset="images/3.webp">
+        <img src="images/3.jpg" alt="Landscaped community park with lush grass and family walking trails" loading="lazy" decoding="async" onload="this.closest('.card-media-wrap').classList.add('loaded')">
+      </picture>
+      <div class="card-overlay">
+        <span class="card-category">Amenities</span>
+        <h4 class="card-title">Central Green Park</h4>
+        <div class="card-meta"><span>Landscaped garden &amp; trails</span><span class="view-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-card" data-category="amenities" data-index="5" tabindex="0" role="button" aria-label="Clubhouse & Pool">
+    <div class="card-media-wrap">
+      <picture>
+        <source type="image/webp" srcset="images/images (1).webp">
+        <img src="images/images (1).jpg" alt="Modern resident clubhouse and open-air swimming pool area" loading="lazy" decoding="async" onload="this.closest('.card-media-wrap').classList.add('loaded')">
+      </picture>
+      <div class="card-overlay">
+        <span class="card-category">Amenities</span>
+        <h4 class="card-title">Clubhouse &amp; Pool</h4>
+        <div class="card-meta"><span>Recreational hub</span><span class="view-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-card" data-category="township" data-index="6" tabindex="0" role="button" aria-label="Paved Enclave Avenues">
+    <div class="card-media-wrap">
+      <picture>
+        <source type="image/webp" srcset="images/images.webp">
+        <img src="images/images.jpg" alt="Gated residential enclave with finished streetscaping and plots" loading="lazy" decoding="async" onload="this.closest('.card-media-wrap').classList.add('loaded')">
+      </picture>
+      <div class="card-overlay">
+        <span class="card-category">Township</span>
+        <h4 class="card-title">Paved Enclave Avenues</h4>
+        <div class="card-meta"><span>Gated residential enclave</span><span class="view-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div></section>
+
+<section id="location" class="band"><div class="container wrap">
+<h2 class="sh">Location</h2>
+<div class="two"><ul class="am one"><li>Moradabad-Bareilly Expressway</li><li>Phoenix United Mall</li><li>Railway station and bus stand</li><li>Schools, colleges and hospitals</li><li>Bareilly Airport</li></ul>
+<div class="ph">Add map or embed screenshot</div></div>
+</div></section>
+
+<section id="enquire"><div class="container wrap">
+<h2 class="sh">About the developer &amp; Contact</h2>
+<div class="two" style="align-items:start;margin-top:28px">
+<div>
+<h3 style="font-size:24px;margin-bottom:12px;font-family:Gloock,serif">Project Marketing &amp; Sales</h3>
+<p class="lead" style="margin-bottom:20px">Authorised Channel Partner for Omaxe residential townships and plots in Bareilly. Visit our office or reach out via phone/email for verified layouts, unit availability, and to schedule private site visits.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<a class="btn" href="tel:+918534026777">Call 08534026777</a>
+<a class="btn alt" href="https://wa.me/918534026777?text=Hello%2C%20I%20am%20interested%20in%20Omaxe%20Bareilly." target="_blank" rel="noopener">WhatsApp Us</a>
+</div>
+</div>
+<div style="background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px;display:grid;gap:16px">
+<div>
+<strong style="display:block;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;color:var(--mute);margin-bottom:4px">Office Address</strong>
+<p style="margin:0;font-size:16px;line-height:1.5">SKY YARDS JHM Ace Commercial, Dohra Road, Bareilly, U.P. 243005</p>
+</div>
+<div style="border-top:1px solid var(--line);padding-top:14px">
+<strong style="display:block;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;color:var(--mute);margin-bottom:4px">Phone Numbers</strong>
+<p style="margin:0;font-size:16px;line-height:1.6">
+<a href="tel:+918534026777" style="color:var(--ink);text-decoration:none;font-weight:600">08534026777</a> &nbsp;|&nbsp; 
+<a href="tel:+918218095851" style="color:var(--ink);text-decoration:none;font-weight:600">08218095851</a>
+</p>
+</div>
+<div style="border-top:1px solid var(--line);padding-top:14px">
+<strong style="display:block;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;color:var(--mute);margin-bottom:4px">Email Address</strong>
+<p style="margin:0;font-size:16px">
+<a href="mailto:skyyardsofficial@gmail.com" style="color:var(--kite);text-decoration:none;font-weight:600">skyyardsofficial@gmail.com</a>
+</p>
+</div>
+</div>
+</div>
+</div></section>
+</main>
+<footer><div class="container wrap">
+<p><b>Disclaimer:</b> This page is for information only and is not an offer. Prices are subject to change without notice and units are subject to availability. Images are representative. We may send updates to the number or email you provide.</p>
+<p style="font-size:13px;opacity:0.85;margin-top:10px">Office: SKY YARDS JHM Ace Commercial, Dohra Road, Bareilly, U.P. 243005 &bull; Phone: 08534026777, 08218095851 &bull; Email: skyyardsofficial@gmail.com</p>
+</div></footer>
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+e.preventDefault();
+var d=new FormData(e.target);
+var num='918534026777';
+var msg='Hello, I am '+d.get('n')+' ('+d.get('p')+'). I am interested in: '+(d.get('t')?d.get('t')+' at ':'')+'Omaxe Bareilly.';
+window.open('https://wa.me/'+num+'?text='+encodeURIComponent(msg),'_blank');
+});
+var logo=document.querySelector('.logo');
+var logoImg=document.querySelector('.logo img');
+if(logo&&logoImg){
+logo.addEventListener('mousemove',function(e){
+var rect=logo.getBoundingClientRect();
+var x=(e.clientX-rect.left)/rect.width;
+var b=1.05+Math.sin(x*Math.PI)*0.28;
+logoImg.style.animation='none';
+logoImg.style.filter='brightness('+b.toFixed(2)+') contrast(1.06) drop-shadow(0 4px 18px rgba(0,95,166,0.4))';
+logoImg.style.transform='scale(1.06)';
+});
+logo.addEventListener('mouseleave',function(){
+logoImg.style.animation='';
+logoImg.style.filter='';
+logoImg.style.transform='';
+});
+}
+</script>
+
+<!-- Full-Screen Lightbox Modal -->
+<div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Full-screen image viewer">
+  <div class="lightbox-topbar">
+    <div class="lightbox-counter" id="lightboxCounter">1 / 7</div>
+    <div class="lightbox-caption-area">
+      <div class="lightbox-title" id="lightboxTitle">Grand Township Panorama</div>
+      <div class="lightbox-cat" id="lightboxCat">Township Overview</div>
+    </div>
+    <div class="lightbox-actions">
+      <button class="lightbox-btn" id="lightboxCloseBtn" aria-label="Close viewer (Escape)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="lightbox-stage" id="lightboxStage">
+    <button class="nav-arrow nav-prev" id="lightboxPrevBtn" aria-label="Previous image (Left arrow)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="lightbox-img-wrapper">
+      <img src="" alt="" class="lightbox-img" id="lightboxImg">
+    </div>
+    <button class="nav-arrow nav-next" id="lightboxNextBtn" aria-label="Next image (Right arrow)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <div class="lightbox-thumbnails" id="lightboxThumbs" role="tablist" aria-label="Image thumbnails"></div>
+</div>
+
+<script>
+// Lightbox Data & Logic
+const galleryItems = [
+  { title: "Grand Township Panorama", category: "Township", src: "images/gallery_1670824275618.jpg", webp: "images/gallery_1670824275618.webp", alt: "Aerial panorama of the Omaxe Bareilly township master plan with landscaped parks and modern avenues" },
+  { title: "The Omaxe State Pavilion", category: "Architecture", src: "images/the-omaxe-state-project-project-large-image1-6801-opt-c86a79f3-6f68-4e04-800e-ead1fb5ceb0a.jpg", webp: "images/the-omaxe-state-project-project-large-image1-6801-opt-c86a79f3-6f68-4e04-800e-ead1fb5ceb0a.webp", alt: "The Omaxe State architectural facade and commercial promenade" },
+  { title: "Luxury Villa Front Elevation", category: "Architecture", src: "images/1.jpg", webp: "images/1.webp", alt: "Luxury contemporary duplex villa with manicured lawn and private parking" },
+  { title: "Tree-Lined Internal Boulevard", category: "Township", src: "images/2.jpg", webp: "images/2.webp", alt: "Tree-lined township boulevard with paved walkways and street lighting" },
+  { title: "Central Green Park & Walkways", category: "Amenities", src: "images/3.jpg", webp: "images/3.webp", alt: "Landscaped community park with lush grass and family walking trails" },
+  { title: "Residents Clubhouse & Leisure Pool", category: "Amenities", src: "images/images (1).jpg", webp: "images/images (1).webp", alt: "Modern resident clubhouse and open-air swimming pool area" },
+  { title: "Paved Enclave & Streetscapes", category: "Township", src: "images/images.jpg", webp: "images/images.webp", alt: "Gated residential enclave with finished streetscaping and plots" }
+];
+
+let currentIndex = 0;
+const modal = document.getElementById('lightboxModal');
+const lbImg = document.getElementById('lightboxImg');
+const lbCounter = document.getElementById('lightboxCounter');
+const lbTitle = document.getElementById('lightboxTitle');
+const lbCat = document.getElementById('lightboxCat');
+const thumbsContainer = document.getElementById('lightboxThumbs');
+const prevBtn = document.getElementById('lightboxPrevBtn');
+const nextBtn = document.getElementById('lightboxNextBtn');
+const closeBtn = document.getElementById('lightboxCloseBtn');
+const stage = document.getElementById('lightboxStage');
+
+function initThumbnails() {
+  thumbsContainer.innerHTML = '';
+  galleryItems.forEach((item, index) => {
+    const btn = document.createElement('button');
+    btn.className = 'thumb-btn ' + (index === currentIndex ? 'active' : '');
+    btn.setAttribute('aria-label', 'Jump to image ' + (index + 1) + ': ' + item.title);
+    btn.innerHTML = '<img src="' + (item.webp || item.src) + '" alt="' + item.title + '">';
+    btn.addEventListener('click', () => showImage(index));
+    thumbsContainer.appendChild(btn);
+  });
+}
+
+function showImage(index) {
+  if (index < 0) index = galleryItems.length - 1;
+  if (index >= galleryItems.length) index = 0;
+  currentIndex = index;
+
+  const item = galleryItems[currentIndex];
+  lbImg.classList.remove('loaded');
+  lbImg.src = item.webp || item.src;
+  lbImg.alt = item.alt;
+  lbImg.onload = () => lbImg.classList.add('loaded');
+
+  lbTitle.textContent = item.title;
+  lbCat.textContent = item.category;
+  lbCounter.textContent = (currentIndex + 1) + ' / ' + galleryItems.length;
+
+  const thumbBtns = thumbsContainer.querySelectorAll('.thumb-btn');
+  thumbBtns.forEach((btn, i) => {
+    btn.classList.toggle('active', i === currentIndex);
+    if (i === currentIndex) {
+      btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  });
+}
+
+function openLightbox(index) {
+  initThumbnails();
+  showImage(index);
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  closeBtn.focus();
+}
+
+function closeLightbox() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+if (prevBtn && nextBtn && closeBtn) {
+  prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
+  nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
+  closeBtn.addEventListener('click', closeLightbox);
+}
+
+if (modal && stage) {
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal || e.target === stage) closeLightbox();
+  });
+}
+
+window.addEventListener('keydown', (e) => {
+  if (!modal || !modal.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+  if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+});
+
+// Touch swipe gestures
+let touchStartX = 0;
+let touchStartY = 0;
+if (stage) {
+  stage.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  stage.addEventListener('touchend', (e) => {
+    const diffX = e.changedTouches[0].screenX - touchStartX;
+    const diffY = e.changedTouches[0].screenY - touchStartY;
+    if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX > 0) showImage(currentIndex - 1);
+      else showImage(currentIndex + 1);
+    }
+  }, { passive: true });
+}
+
+document.querySelectorAll('.gallery-card').forEach(card => {
+  const idx = parseInt(card.getAttribute('data-index'), 10);
+  card.addEventListener('click', () => openLightbox(idx));
+  card.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(idx); }
+  });
+});
+
+const heroCard = document.getElementById('heroCard');
+if (heroCard) {
+  heroCard.addEventListener('click', () => openLightbox(0));
+  heroCard.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(0); }
+  });
+}
+
+// Filter tabs logic
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.gallery-card');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    const filter = btn.getAttribute('data-filter');
+
+    cards.forEach(card => {
+      const cat = card.getAttribute('data-category');
+      if (filter === 'all' || cat === filter) {
+        card.style.display = 'block';
+        requestAnimationFrame(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+        });
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          if (btn.getAttribute('data-filter') !== 'all' && card.getAttribute('data-category') !== btn.getAttribute('data-filter')) {
+            card.style.display = 'none';
+          }
+        }, 250);
+      }
+    });
+  });
+});
+
+// Dark / Light Theme Toggle
+const themeBtn = document.getElementById('themeToggleBtn');
+const themeLabel = document.getElementById('themeLabel');
+const themeIcon = document.getElementById('themeIcon');
+if (themeBtn) {
+  function updateThemeUI(isDark) {
+    if (themeLabel) themeLabel.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+    if (themeIcon) {
+      themeIcon.innerHTML = isDark
+        ? '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>'
+        : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    }
+  }
+
+  themeBtn.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const next = isDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    updateThemeUI(!isDark);
+  });
+}
+
+// Hero Logo Replay on Click
+const heroAnim = document.getElementById('heroLogoAnim');
+if (heroAnim) {
+  heroAnim.addEventListener('click', function() {
+    const els = heroAnim.querySelectorAll('.hand, .house');
+    els.forEach(e => e.style.animation = 'none');
+    void heroAnim.offsetWidth;
+    els.forEach(e => e.style.animation = '');
+  });
+}
+</script>
+</body>
+</html>

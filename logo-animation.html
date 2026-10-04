@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Omaxe Bareilly - Logo Animation</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:focus-visible { outline: 2px solid #ffcc00; outline-offset: 3px; }
+body {
+  margin: 0;
+  background: #0a0a0a;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+}
+.logo {
+  width: min(340px, 70vw);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.logo .hand { animation: hand 1.6s .4s cubic-bezier(.2,.7,.2,1) both; }
+.logo .house { animation: house 1.8s 1.8s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes hand {
+  from { opacity: 0; transform: translateY(160px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes house {
+  from { opacity: 0; transform: translateY(150px) scale(.92); transform-origin: 860px 450px; }
+  to { opacity: 1; transform: none; transform-origin: 860px 450px; }
+}
+button.replay {
+  background: none;
+  border: 1px solid #2a2a26;
+  color: #a7a396;
+  padding: 8px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color .2s, color .2s;
+}
+button.replay:hover {
+  border-color: #ffcc00;
+  color: #ffcc00;
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo .hand, .logo .house { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<svg id="logo" class="logo" viewBox="400 110 800 700" role="img" aria-label="Omaxe Bareilly logo: a hand holding a house">
+<g class="house" fill="#ffcc00">
+<polyline points="560,365 860,150 1140,365" fill="none" stroke="#ffcc00" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="606" y="372" width="42" height="133" rx="3"/>
+<rect x="1056" y="372" width="40" height="220" rx="3"/>
+<rect x="632" y="184" width="80" height="120" rx="12"/>
+<rect x="796" y="345" width="46" height="46" rx="4"/><rect x="872" y="345" width="46" height="46" rx="4"/>
+<rect x="796" y="419" width="46" height="46" rx="4"/><rect x="872" y="419" width="46" height="46" rx="4"/>
+</g>
+<path class="hand" fill="#ffcc00" d="M415 522Q413 511 428 511L532 511Q545 511 546 526L549 535L640 535C700 535 730 550 770 568C820 590 870 595 925 594C962 594 970 625 940 647C930 655 915 655 900 655L757 655C740 655 740 683 757 683L920 683C945 683 955 675 975 665C1050 630 1110 610 1150 596C1182 588 1192 612 1170 628L905 772C860 796 820 796 780 788L556 717L548 722L548 740Q548 749 538 749L490 749Q480 749 477 740L447 665C435 620 425 585 415 522Z"/>
+</svg>
+
+<button class="replay" id="replay" type="button">Replay</button>
+
+<script>
+document.getElementById('replay').addEventListener('click', function(){
+  var els = document.querySelectorAll('.logo .hand, .logo .house');
+  els.forEach(function(e){ e.style.animation = 'none'; });
+  void document.body.offsetWidth;
+  els.forEach(function(e){ e.style.animation = ''; });
+});
+</script>
+</body>
+</html>
