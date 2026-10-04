@@ -107,6 +107,13 @@ footer p{margin:0;max-width:60ch;opacity:.85}
 @media(max-width:960px){.about-omaxe-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.omaxe-milestones-grid{grid-template-columns:1fr}.plots-showcase-wrap{padding:20px}}
 
+/* Presence in India Section */
+.presence-section{padding:76px 0;background:var(--bg)}
+.presence-frame-card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 36px -6px rgba(0,0,0,0.08);position:relative}
+.presence-frame-card iframe{width:100%;height:1060px;border:none;display:block;overflow:hidden}
+@media(max-width:760px){.presence-frame-card iframe{height:1140px}}
+
+
 header .logo small{font:500 14px Figtree;color:var(--mute)}
 .btn.sm{padding:8px 14px;font-size:14px}
 .hero .wrap{min-height:520px}
@@ -208,7 +215,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
 <body>
 <header><div class="container wrap">
 <a class="logo" href="#top" aria-label="Omaxe Bareilly"><img src="omaxe-logo.png" alt="Omaxe - Turning dreams into reality"></a>
-<nav aria-label="Main"><a href="#overview">Overview</a><a href="#about-omaxe">About Omaxe</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#plans">Floor plans</a><a href="#location">Location</a><a href="#enquire">Contact</a></nav>
+<nav aria-label="Main"><a href="#overview">Overview</a><a href="#about-omaxe">About Omaxe</a><a href="#presence">Presence</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#plans">Floor plans</a><a href="#location">Location</a><a href="#enquire">Contact</a></nav>
 <div style="display:flex;align-items:center;gap:12px">
 <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle light and dark mode" style="padding:6px 14px;font-size:13px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s">
   <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -422,6 +429,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
           <div class="stat-line"></div>
         </div>
         <span class="stat-suffix">Across 8 States</span>
+        <a href="#presence" style="display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:var(--pine);text-decoration:none;margin-top:12px;background:rgba(15,59,56,0.07);padding:6px 14px;border-radius:6px;border:1px solid rgba(15,59,56,0.15);width:fit-content;transition:all 0.2s">Explore Interactive Map &rarr;</a>
       </div>
 
     </div>
@@ -508,6 +516,32 @@ table.grid td{border:1px solid var(--line);padding:14px}
     </div>
   </div>
 
+</div>
+</section>
+
+<section id="presence" class="presence-section band">
+<div class="container wrap">
+  <div style="text-align:center;max-width:840px;margin:0 auto 32px">
+    <span style="display:inline-block;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--kite);margin-bottom:8px">National Footprint</span>
+    <h2 class="sh" style="margin-bottom:14px">Presence Across India</h2>
+    <p class="lead" style="margin:0 auto;font-size:17.5px;color:var(--mute);line-height:1.6">
+      Spanning <strong>31 Cities across 8 States</strong>, Omaxe has delivered landmark integrated townships, shopping malls, and group housing. Click any highlighted state on the map below to discover our presence.
+    </p>
+  </div>
+
+  <div class="presence-frame-card">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--line);background:rgba(0,0,0,0.02);font-size:13.5px;font-weight:600;color:var(--mute);flex-wrap:wrap;gap:10px">
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#1c5aa6"></span>
+        <span>Interactive State Map &bull; Click any blue state to view locations</span>
+      </div>
+      <a href="Our%20Presence%20In%20India.html" target="_blank" rel="noopener noreferrer" style="color:var(--pine);text-decoration:none;display:inline-flex;align-items:center;gap:5px;font-weight:700">
+        Open Full Map
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+      </a>
+    </div>
+    <iframe src="Our%20Presence%20In%20India.html" title="Our Presence in India - Interactive Map" scrolling="no" loading="lazy"></iframe>
+  </div>
 </div>
 </section>
 
