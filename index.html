@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Omaxe Bareilly | Plots and homes in Bareilly</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Figtree:wght@400;500;600;700;800&display=swap">
 <style>
 :root{--bg:#f4f6f5;--ink:#14201f;--mute:#4d5f5c;--pine:#0f3b38;--pine-ink:#f4f6f5;--kite:#d6403a;--gold:#e8a317;--line:#cfd8d5;--card:#ffffff;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -29,19 +29,29 @@ nav{display:flex;gap:22px;font-size:15px;font-weight:500}
 nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
 .btn{display:inline-block;background:var(--kite);color:#fff;padding:12px 22px;border-radius:4px;font-weight:700;text-decoration:none;border:0;font:700 16px Figtree,sans-serif;cursor:pointer}
 .btn.alt{background:transparent;color:inherit;border:1.5px solid currentColor}
-.hero{background:var(--pine);color:var(--pine-ink);overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;min-height:560px;padding-top:56px;padding-bottom:56px}
-.hero h1{font-size:clamp(38px,6vw,68px)}
-.hero p{max-width:46ch;font-size:19px;opacity:.9;margin:22px 0 30px}
-.hero .row{display:flex;gap:12px;flex-wrap:wrap}
-.hero-logo-bg{display:flex;align-items:center;justify-content:center;position:relative;min-height:440px;width:100%}
-.hero-anim-logo{width:min(440px,90%);height:auto;display:block;margin:0 auto;filter:drop-shadow(0 14px 35px rgba(0,0,0,0.35));cursor:pointer;transition:transform 0.3s ease}
-.hero-anim-logo:hover{transform:scale(1.03)}
-.hero-anim-logo .hand{animation:hand 1.6s .4s cubic-bezier(.2,.7,.2,1) both}
-.hero-anim-logo .house{animation:house 1.8s 1.8s cubic-bezier(.2,.7,.2,1) both}
-@keyframes hand{from{opacity:0;transform:translateY(160px)}to{opacity:1;transform:none}}
-@keyframes house{from{opacity:0;transform:translateY(150px) scale(.92);transform-origin:860px 450px}to{opacity:1;transform:none;transform-origin:860px 450px}}
-@media(prefers-reduced-motion:reduce){.hero-anim-logo .hand,.hero-anim-logo .house{animation:none}}
+.hero{background:var(--pine);color:var(--pine-ink);overflow:hidden;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center;min-height:540px;padding-top:52px;padding-bottom:52px}
+.hero-intro{display:flex;flex-direction:column;gap:16px;z-index:2}
+.hero-badge-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.22);padding:6px 16px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--pine-ink);width:fit-content}
+.hero-badge-dot{opacity:0.4}
+.hero-badge-hl{color:var(--gold);font-weight:700}
+.hero-title{font-family:Gloock,serif;font-size:clamp(36px,5.5vw,56px);line-height:1.1;margin:0;color:#ffffff}
+.hero-sub{font-size:clamp(16.5px,1.9vw,19px);line-height:1.6;opacity:0.92;margin:0;max-width:54ch;color:var(--pine-ink)}
+.hero-plot-banner{background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);border:1.5px solid rgba(232,163,23,0.7);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 8px 24px rgba(0,0,0,0.16);flex-wrap:wrap}
+.hero-plot-icon{font-size:24px;line-height:1}
+.hero-plot-content{flex:1;min-width:240px}
+.hero-plot-label{font-size:11.5px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--gold);margin-bottom:3px}
+.hero-plot-sizes-row{font-size:clamp(15px,1.8vw,17.5px);font-weight:700;color:#ffffff;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hero-plot-tag{background:var(--gold);color:#14201f;padding:2px 8px;border-radius:5px;font-weight:800;font-size:14.5px}
+.plot-sep{opacity:0.5}
+.plot-unit{font-weight:600;font-size:14.5px;color:rgba(255,255,255,0.9)}
+.hero-points{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;font-weight:500;color:rgba(255,255,255,0.85);margin-top:4px}
+.hero-point-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(0,0,0,0.15);padding:5px 12px;border-radius:6px;border:1px solid rgba(255,255,255,0.1)}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.hero-cta-btn{background:var(--gold);color:#14201f;font-weight:700;padding:13px 26px;border-radius:6px;transition:transform 0.2s,filter 0.2s}
+.hero-cta-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.hero-sec-btn{border-color:rgba(255,255,255,0.4);color:#ffffff;padding:13px 24px;border-radius:6px;transition:all 0.2s}
+.hero-sec-btn:hover{border-color:#ffffff;background:rgba(255,255,255,0.1)}
 section{padding:76px 0}
 section h2{font-size:clamp(30px,4vw,44px);margin-bottom:18px}
 .lead{max-width:62ch;color:var(--mute)}
@@ -60,8 +70,42 @@ input,select{font:inherit;padding:12px;border:1.5px solid var(--line);border-rad
 footer{background:var(--pine);color:var(--pine-ink);padding:40px 0;font-size:15px}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer p{margin:0;max-width:60ch;opacity:.85}
-@media(max-width:760px){nav{display:none}.hero .wrap,.hero .container,.two{grid-template-columns:1fr}.hero-logo-bg{min-height:300px;order:-1;margin-bottom:16px}.am{columns:1}section{padding:56px 0}}
+@media(max-width:760px){nav{display:none}.hero .wrap,.hero .container,.two{grid-template-columns:1fr}.am{columns:1}section{padding:56px 0}}
 #connectivity{padding-bottom:40px}
+
+/* About Omaxe Section Styles */
+.about-omaxe-section{background:var(--bg);position:relative}
+.omaxe-statement-card{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--pine);border-radius:12px;padding:clamp(22px,3.5vw,36px);box-shadow:0 6px 24px -4px rgba(0,0,0,0.06);position:relative;overflow:hidden;margin-bottom:36px}
+.statement-text{font-family:Figtree,system-ui,sans-serif;font-weight:800;font-size:clamp(17px,2.1vw,22px);line-height:1.5;color:var(--ink);letter-spacing:0.4px;margin:0;text-transform:uppercase}
+.about-omaxe-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:36px;margin:36px 0;align-items:start}
+.omaxe-story-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(22px,3.5vw,34px);box-shadow:0 6px 24px -4px rgba(0,0,0,0.06)}
+.omaxe-milestones-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.milestone-item{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.milestone-year{font-family:Gloock,serif;font-size:21px;color:var(--kite);font-weight:700;margin-bottom:2px}
+.milestone-label{font-size:13px;color:var(--mute);line-height:1.35}
+.omaxe-stats-stack{display:grid;gap:18px}
+.omaxe-stat-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px 28px;box-shadow:0 4px 18px -3px rgba(0,0,0,0.05);transition:transform 0.3s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.3s ease}
+.omaxe-stat-box:hover{transform:translateY(-3px);box-shadow:0 12px 30px -4px rgba(0,0,0,0.12)}
+.stat-prefix{font-family:'Cormorant Garamond',Gloock,Georgia,serif;font-size:22px;color:var(--mute);display:block;margin-bottom:2px;font-style:normal}
+.stat-value-group{display:block;margin-bottom:4px}
+.stat-big-num{font-family:'Cormorant Garamond',Gloock,Georgia,serif;font-size:clamp(44px,5vw,56px);font-weight:600;color:var(--ink);line-height:1;letter-spacing:-0.5px}
+.stat-line{width:100%;height:2px;background:var(--ink);margin-top:8px;opacity:0.85;border-radius:1px}
+.stat-middle{font-family:'Cormorant Garamond',Gloock,Georgia,serif;font-size:20px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:0.5px;margin-top:6px;margin-bottom:2px}
+.stat-suffix{font-family:'Cormorant Garamond',Gloock,Georgia,serif;font-size:19px;color:var(--mute);line-height:1.35;margin-top:2px}
+.plots-showcase-wrap{margin-top:48px;padding:clamp(24px,4vw,36px);background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,0.05)}
+.plot-cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.plot-spec-card{background:var(--bg);border:1.5px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;transition:all 0.3s ease;position:relative}
+.plot-spec-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 10px 26px -4px rgba(0,0,0,0.1)}
+.plot-spec-card.popular-plot{border-color:var(--pine);background:var(--card);box-shadow:0 8px 24px -4px rgba(15,59,56,0.12)}
+.plot-spec-badge{display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;color:var(--pine);background:rgba(15,59,56,0.08);padding:3px 10px;border-radius:999px;width:fit-content;margin-bottom:12px}
+.plot-size-num{font-family:Gloock,serif;font-size:38px;line-height:1;color:var(--ink);margin-bottom:2px}
+.plot-size-unit{font-size:14px;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.plot-metric-sub{font-size:13px;color:var(--mute);border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:14px}
+.plot-features-list{margin:0 0 18px;padding-left:18px;font-size:13.5px;color:var(--ink);display:grid;gap:7px;flex:1}
+.plot-select-btn{background:var(--pine);color:#fff;border:0;padding:10px 16px;border-radius:6px;font-size:14px;font-weight:700;cursor:pointer;transition:all 0.2s ease;width:100%}
+.plot-select-btn:hover{background:var(--kite)}
+@media(max-width:960px){.about-omaxe-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.omaxe-milestones-grid{grid-template-columns:1fr}.plots-showcase-wrap{padding:20px}}
 
 header .logo small{font:500 14px Figtree;color:var(--mute)}
 .btn.sm{padding:8px 14px;font-size:14px}
@@ -164,7 +208,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
 <body>
 <header><div class="container wrap">
 <a class="logo" href="#top" aria-label="Omaxe Bareilly"><img src="omaxe-logo.png" alt="Omaxe - Turning dreams into reality"></a>
-<nav aria-label="Main"><a href="#overview">Overview</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#plans">Floor plans</a><a href="#location">Location</a><a href="#enquire">Contact</a></nav>
+<nav aria-label="Main"><a href="#overview">Overview</a><a href="#about-omaxe">About Omaxe</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#plans">Floor plans</a><a href="#location">Location</a><a href="#enquire">Contact</a></nav>
 <div style="display:flex;align-items:center;gap:12px">
 <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle light and dark mode" style="padding:6px 14px;font-size:13px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s">
   <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -175,6 +219,45 @@ table.grid td{border:1px solid var(--line);padding:14px}
 </div></header>
 <main id="top">
 <div class="hero"><div class="container wrap">
+<div class="hero-intro">
+  <div class="hero-badge-pill">
+    <span>✨ Bareilly’s First Integrated Township</span>
+    <span class="hero-badge-dot">•</span>
+    <span class="hero-badge-hl">72+ Acres</span>
+  </div>
+  <h1 class="hero-title">Omaxe City, Bareilly</h1>
+  <p class="hero-sub">A master-planned integrated township strategically located at Lalpur along the Delhi–Lucknow Expressway. Residential plots, high-street retail, healthcare, and education united in one vibrant destination.</p>
+
+  <div class="hero-plot-banner">
+    <div class="hero-plot-icon">📐</div>
+    <div class="hero-plot-content">
+      <div class="hero-plot-label">Approved Freehold Residential Plots</div>
+      <div class="hero-plot-sizes-row">
+        <span>Plot Sizes:</span>
+        <span class="hero-plot-tag">117</span>
+        <span class="plot-sep">|</span>
+        <span class="hero-plot-tag">132</span>
+        <span class="plot-sep">|</span>
+        <span class="hero-plot-tag">200</span>
+        <span class="plot-sep">|</span>
+        <span class="hero-plot-tag">240</span>
+        <span class="plot-unit">Sq. Yards</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-points">
+    <div class="hero-point-chip"><span>📍</span> Delhi–Lucknow Expressway, Lalpur</div>
+    <div class="hero-point-chip"><span>🛡️</span> Gated Township with UP-RERA</div>
+    <div class="hero-point-chip"><span>🛍️</span> School, Mall &amp; Hospital Planned</div>
+  </div>
+
+  <div class="hero-cta-row">
+    <a class="btn hero-cta-btn" href="#f">Enquire for Plots</a>
+    <a class="btn alt hero-sec-btn" href="#about-omaxe">About Omaxe</a>
+  </div>
+</div>
+
 <form id="f" class="card" aria-label="Enquiry form">
 <div class="pill">Omaxe City, Bareilly</div>
 <b>72+ Acre Integrated Township</b>
@@ -186,19 +269,6 @@ table.grid td{border:1px solid var(--line);padding:14px}
 <button class="btn" type="submit">Submit</button>
 <div class="rera">RERA no: <span class="tbd">[add]</span><br>Check at www.up-rera.in</div>
 </form>
-<div class="hero-logo-bg" aria-hidden="true">
-<svg id="heroLogoAnim" class="hero-anim-logo" viewBox="400 110 800 700" role="img" aria-label="Omaxe Bareilly animated logo: a hand holding a house">
-<g class="house" fill="#ffcc00">
-<polyline points="560,365 860,150 1140,365" fill="none" stroke="#ffcc00" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
-<rect x="606" y="372" width="42" height="133" rx="3"/>
-<rect x="1056" y="372" width="40" height="220" rx="3"/>
-<rect x="632" y="184" width="80" height="120" rx="12"/>
-<rect x="796" y="345" width="46" height="46" rx="4"/><rect x="872" y="345" width="46" height="46" rx="4"/>
-<rect x="796" y="419" width="46" height="46" rx="4"/><rect x="872" y="419" width="46" height="46" rx="4"/>
-</g>
-<path class="hand" fill="#ffcc00" d="M415 522Q413 511 428 511L532 511Q545 511 546 526L549 535L640 535C700 535 730 550 770 568C820 590 870 595 925 594C962 594 970 625 940 647C930 655 915 655 900 655L757 655C740 655 740 683 757 683L920 683C945 683 955 675 975 665C1050 630 1110 610 1150 596C1182 588 1192 612 1170 628L905 772C860 796 820 796 780 788L556 717L548 722L548 740Q548 749 538 749L490 749Q480 749 477 740L447 665C435 620 425 585 415 522Z"/>
-</svg>
-</div>
 </div></div>
 
 <section id="overview"><div class="container wrap">
@@ -256,8 +326,190 @@ table.grid td{border:1px solid var(--line);padding:14px}
       <span style="font-size:13px;color:var(--mute);font-weight:600;text-transform:uppercase;letter-spacing:0.5px">Delhi-Lucknow Exp.</span>
     </div>
   </div>
+  <div style="background:var(--card);border:1.5px solid rgba(232,163,23,0.45);border-radius:12px;padding:16px 20px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.04)">
+    <div style="font-size:12px;color:var(--kite);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">📐 Available Plot Sizes</div>
+    <div style="font-weight:700;font-size:16px;color:var(--ink)">
+      117 <span style="color:var(--line);margin:0 4px">|</span> 132 <span style="color:var(--line);margin:0 4px">|</span> 200 <span style="color:var(--line);margin:0 4px">|</span> 240 <span style="font-weight:600;font-size:14px;color:var(--mute)">Sq. Yards</span>
+    </div>
+  </div>
 </div>
 </div></div></section>
+
+<section id="about-omaxe" class="about-omaxe-section band">
+<div class="container wrap">
+  <div style="text-align:center;max-width:820px;margin:0 auto 36px">
+    <span style="display:inline-block;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.8px;color:var(--kite);margin-bottom:8px">A Legacy of Excellence</span>
+    <h2 class="sh" style="margin-bottom:14px">About Omaxe</h2>
+    <p class="lead" style="margin:0 auto;font-size:17.5px;color:var(--mute);line-height:1.6">Turning dreams into reality with nearly four decades of nation-building, trust, and landmark developments across India.</p>
+  </div>
+
+  <!-- Big Editorial Statement Banner (From Image 2) -->
+  <div class="omaxe-statement-card">
+    <p class="statement-text">
+      SINCE 1987, OMAXE HAS BEEN RELENTLESS IN ITS APPROACH TO PROVIDING WORLD-CLASS SERVICES IN REAL ESTATE AND HAS A VARIED PORTFOLIO COMPRISING INTEGRATED AND HIGH-TECH TOWNSHIPS, GROUP HOUSING, SCOS, SHOPPING MALLS, AND HOTELS TO NAME A SELECT FEW.
+    </p>
+  </div>
+
+  <!-- Narrative Journey & Stats Grid -->
+  <div class="about-omaxe-grid">
+    
+    <!-- Narrative Column (From Image 2) -->
+    <div class="omaxe-story-card">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;border-bottom:1px solid var(--line);padding-bottom:16px;flex-wrap:wrap">
+        <img src="omaxe-logo.png" alt="Omaxe" style="height:36px;width:auto;object-fit:contain">
+        <div style="height:24px;width:1px;background:var(--line)"></div>
+        <span style="font-family:'Cormorant Garamond',Gloock,Georgia,serif;font-size:21px;font-style:italic;color:var(--pine);font-weight:600">“Turning Dreams into Reality”</span>
+      </div>
+
+      <p style="font-size:16.5px;line-height:1.75;color:var(--ink);margin:0 0 18px">
+        The journey of Omaxe started when first-generation entrepreneur <strong>Mr Rohtaas Goel</strong> laid the foundations to undertake the Construction and Contracting business in 1987. Omaxe launched its first real estate project with executive floors in 2001 in Gurugram. From those humble beginnings to being listed in NSE and BSE in 2007 to becoming a company with a net worth of 1638 crores in 2020, Omaxe has come a long way.
+      </p>
+
+      <p style="font-size:16.5px;line-height:1.75;color:var(--ink);margin:0 0 24px">
+        Since 1987 Omaxe has stayed true to its motto of <em>“Turning Dreams into Reality”</em> by providing customers with their dream living spaces. This has been vindicated by the long-standing relationship that Omaxe has with its customers and the smiles it has earned through the years for its exceptional work.
+      </p>
+
+      <!-- Milestone Highlights -->
+      <div class="omaxe-milestones-grid">
+        <div class="milestone-item">
+          <div class="milestone-year">1987</div>
+          <div class="milestone-label">Foundation laid in Construction &amp; Contracting</div>
+        </div>
+        <div class="milestone-item">
+          <div class="milestone-year">2001</div>
+          <div class="milestone-label">First Real Estate Project launched in Gurugram</div>
+        </div>
+        <div class="milestone-item">
+          <div class="milestone-year">2007</div>
+          <div class="milestone-label">Publicly Listed on National Stock Exchange (NSE) &amp; BSE</div>
+        </div>
+        <div class="milestone-item">
+          <div class="milestone-year">₹1,638 Cr</div>
+          <div class="milestone-label">Net worth benchmark attained in 2020</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Stat Cards Column (From Image 3) -->
+    <div class="omaxe-stats-stack">
+      
+      <!-- Stat Card 1 -->
+      <div class="omaxe-stat-box">
+        <span class="stat-prefix">A Legacy Of</span>
+        <div class="stat-value-group">
+          <span class="stat-big-num">38 Years</span>
+          <div class="stat-line"></div>
+        </div>
+        <span class="stat-suffix">of Sustained Growth and Innovation</span>
+      </div>
+
+      <!-- Stat Card 2 -->
+      <div class="omaxe-stat-box">
+        <span class="stat-prefix">An Area of</span>
+        <div class="stat-value-group">
+          <span class="stat-big-num">13.02</span>
+          <div class="stat-line"></div>
+        </div>
+        <div class="stat-middle">Million SQ. MTR.</div>
+        <span class="stat-suffix">Proudly Delivered</span>
+      </div>
+
+      <!-- Stat Card 3 -->
+      <div class="omaxe-stat-box">
+        <span class="stat-prefix">Proud Presence in</span>
+        <div class="stat-value-group">
+          <span class="stat-big-num">31 Cities</span>
+          <div class="stat-line"></div>
+        </div>
+        <span class="stat-suffix">Across 8 States</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Dedicated Plot Sizes Showcase -->
+  <div class="plots-showcase-wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px;border-bottom:1px solid var(--line);padding-bottom:20px">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(214,64,58,0.1);color:var(--kite);padding:4px 12px;border-radius:999px;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px">
+          <span>📐 Investment &amp; Residential Plots</span>
+        </div>
+        <h3 style="font-family:Gloock,serif;font-size:clamp(24px,3vw,32px);color:var(--ink);margin:0 0 6px">Freehold Residential Plot Sizes</h3>
+        <p style="margin:0;font-size:16px;color:var(--mute)">Choose your preferred plot size within Bareilly’s first 72+ acre integrated township.</p>
+      </div>
+      <div style="font-size:15px;font-weight:700;color:var(--pine);background:rgba(15,59,56,0.08);padding:8px 16px;border-radius:8px;border:1px solid rgba(15,59,56,0.15)">
+        📐 Plot Sizes: 117 | 132 | 200 | 240 Sq. Yards
+      </div>
+    </div>
+
+    <div class="plot-cards-grid">
+      
+      <!-- Plot 1: 117 Sq. Yards -->
+      <div class="plot-spec-card">
+        <div class="plot-spec-badge">Compact Luxury</div>
+        <div class="plot-size-num">117</div>
+        <div class="plot-size-unit">Sq. Yards</div>
+        <div class="plot-metric-sub">~1,053 Sq. Ft. • ~97.8 Sq. Mtr.</div>
+        <ul class="plot-features-list">
+          <li>Optimal Frontage &amp; Depth</li>
+          <li>Ideal for 3 BHK Duplex / Villa</li>
+          <li>Efficient Space Planning</li>
+          <li>Low Maintenance &amp; High Yield</li>
+        </ul>
+        <button class="plot-select-btn" onclick="selectPlotSize('117 Sq. Yards')">Enquire 117 Sq. Yd</button>
+      </div>
+
+      <!-- Plot 2: 132 Sq. Yards -->
+      <div class="plot-spec-card popular-plot">
+        <div class="plot-spec-badge" style="background:var(--pine);color:#fff">Most Popular</div>
+        <div class="plot-size-num">132</div>
+        <div class="plot-size-unit">Sq. Yards</div>
+        <div class="plot-metric-sub">~1,188 Sq. Ft. • ~110.4 Sq. Mtr.</div>
+        <ul class="plot-features-list">
+          <li>Balanced Family Dimensions</li>
+          <li>Dedicated Parking &amp; Portico</li>
+          <li>Ideal for 3-4 BHK Multi-Level Home</li>
+          <li>Excellent Light &amp; Ventilation</li>
+        </ul>
+        <button class="plot-select-btn" onclick="selectPlotSize('132 Sq. Yards')">Enquire 132 Sq. Yd</button>
+      </div>
+
+      <!-- Plot 3: 200 Sq. Yards -->
+      <div class="plot-spec-card">
+        <div class="plot-spec-badge">Grand Living</div>
+        <div class="plot-size-num">200</div>
+        <div class="plot-size-unit">Sq. Yards</div>
+        <div class="plot-metric-sub">~1,800 Sq. Ft. • ~167.2 Sq. Mtr.</div>
+        <ul class="plot-features-list">
+          <li>Wide Street Frontage</li>
+          <li>Ample Space for Private Lawn</li>
+          <li>Ideal for 4-5 BHK Luxury Bungalow</li>
+          <li>Substantial Architectural Freedom</li>
+        </ul>
+        <button class="plot-select-btn" onclick="selectPlotSize('200 Sq. Yards')">Enquire 200 Sq. Yd</button>
+      </div>
+
+      <!-- Plot 4: 240 Sq. Yards -->
+      <div class="plot-spec-card">
+        <div class="plot-spec-badge">Signature Estate</div>
+        <div class="plot-size-num">240</div>
+        <div class="plot-size-unit">Sq. Yards</div>
+        <div class="plot-metric-sub">~2,160 Sq. Ft. • ~200.7 Sq. Mtr.</div>
+        <ul class="plot-features-list">
+          <li>Prime Corner &amp; Boulevard Locations</li>
+          <li>Expansive Garden &amp; Outdoor Sit-out</li>
+          <li>Signature Grand Villa Concept</li>
+          <li>Maximum Appreciation Potential</li>
+        </ul>
+        <button class="plot-select-btn" onclick="selectPlotSize('240 Sq. Yards')">Enquire 240 Sq. Yd</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</section>
 
 <section id="connectivity" class="band"><div class="container wrap">
 <h2 class="sh">Connectivity</h2>
@@ -358,16 +610,27 @@ Located right on the Delhi–Lucknow Expressway at Lalpur, Omaxe City Bareilly o
 <div class="cta"><div class="container wrap"><p>Want the brochure and a site visit? Leave your number and we will call back.</p><a class="btn" href="#top">Enquire now</a></div></div>
 
 <section id="price"><div class="container wrap">
-<h2 class="sh">Price plan</h2>
+<h2 class="sh">Price Plan &amp; Configurations</h2>
 <div class="two">
 <div class="scroll"><table>
-<thead><tr><th>Type</th><th>Area</th><th>Price</th><th></th></tr></thead>
+<thead><tr><th>Property Type</th><th>Plot Area</th><th>Pricing</th><th>Action</th></tr></thead>
 <tbody>
-<tr><td>Plot</td><td class="tbd">[add]</td><td class="tbd">[add]</td><td><a class="btn sm" href="#top">Price breakup</a></td></tr>
-<tr><td>Villa</td><td class="tbd">[add]</td><td class="tbd">[add]</td><td><a class="btn sm" href="#top">Price breakup</a></td></tr>
-<tr><td>Commercial space</td><td class="tbd">[add]</td><td class="tbd">[add]</td><td><a class="btn sm" href="#top">Price breakup</a></td></tr>
+<tr><td>Residential Plot</td><td><strong>117 Sq. Yards</strong> (~1,053 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('117 Sq. Yards')">Enquire</button></td></tr>
+<tr><td>Residential Plot</td><td><strong>132 Sq. Yards</strong> (~1,188 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('132 Sq. Yards')">Enquire</button></td></tr>
+<tr><td>Residential Plot</td><td><strong>200 Sq. Yards</strong> (~1,800 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('200 Sq. Yards')">Enquire</button></td></tr>
+<tr><td>Residential Plot</td><td><strong>240 Sq. Yards</strong> (~2,160 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('240 Sq. Yards')">Enquire</button></td></tr>
+<tr><td>Commercial Space</td><td>High-Street Retail &amp; SCOs</td><td><span class="tbd">On Request</span></td><td><a class="btn sm" href="#f">Enquire</a></td></tr>
 </tbody></table></div>
-<div class="ph">Add the cost sheet and payment schedule</div>
+<div style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;justify-content:center;gap:12px;box-shadow:0 4px 16px rgba(0,0,0,0.04)">
+  <div style="font-family:Gloock,serif;font-size:22px;color:var(--ink)">Transparent Payment Plans</div>
+  <p style="margin:0;font-size:15px;color:var(--mute);line-height:1.6">Attractive construction-linked and flexible instalment plans with pre-approved home loan assistance from leading nationalized &amp; private banks.</p>
+  <ul style="margin:0;padding-left:18px;font-size:14px;color:var(--ink);display:grid;gap:6px">
+    <li>Immediate allotment on booking token</li>
+    <li>Registry &amp; possession as per UP-RERA norms</li>
+    <li>Bank loan facilitation support</li>
+  </ul>
+  <a class="btn" href="#f" style="width:fit-content;margin-top:6px">Request Detailed Cost Sheet</a>
+</div>
 </div></div></section>
 
 <section id="amenities" class="band"><div class="container wrap">
@@ -797,15 +1060,22 @@ if (themeBtn) {
   });
 }
 
-// Hero Logo Replay on Click
-const heroAnim = document.getElementById('heroLogoAnim');
-if (heroAnim) {
-  heroAnim.addEventListener('click', function() {
-    const els = heroAnim.querySelectorAll('.hand, .house');
-    els.forEach(e => e.style.animation = 'none');
-    void heroAnim.offsetWidth;
-    els.forEach(e => e.style.animation = '');
-  });
+// Plot Size Interactive Selector
+function selectPlotSize(size) {
+  const form = document.getElementById('f');
+  if (form) {
+    let note = form.querySelector('.plot-selected-note');
+    if (!note) {
+      note = document.createElement('div');
+      note.className = 'plot-selected-note';
+      note.style.cssText = 'background:var(--pine);color:#fff;padding:8px 12px;border-radius:4px;font-size:13.5px;font-weight:600;margin-bottom:6px;text-align:center;border:1px solid rgba(255,255,255,0.2)';
+      form.insertBefore(note, form.children[3]);
+    }
+    note.innerHTML = 'Selected Plot Size: <b style="color:var(--gold)">' + size + '</b>';
+    form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const nameInput = form.querySelector('input[name="n"]');
+    if (nameInput) setTimeout(() => nameInput.focus(), 450);
+  }
 }
 </script>
 </body>
