@@ -38,7 +38,7 @@ nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
 .hero-title{font-family:Gloock,serif;font-size:clamp(36px,5.5vw,56px);line-height:1.1;margin:0;color:#ffffff}
 .hero-sub{font-size:clamp(16.5px,1.9vw,19px);line-height:1.6;opacity:0.92;margin:0;max-width:54ch;color:var(--pine-ink)}
 .hero-plot-banner{background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);border:1.5px solid rgba(232,163,23,0.7);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 8px 24px rgba(0,0,0,0.16);flex-wrap:wrap}
-.hero-plot-icon{font-size:24px;line-height:1}
+.hero-plot-icon{display:flex;align-items:center;justify-content:center;line-height:1}
 .hero-plot-content{flex:1;min-width:240px}
 .hero-plot-label{font-size:11.5px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--gold);margin-bottom:3px}
 .hero-plot-sizes-row{font-size:clamp(15px,1.8vw,17.5px);font-weight:700;color:#ffffff;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -228,7 +228,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
 <div class="hero"><div class="container wrap">
 <div class="hero-intro">
   <div class="hero-badge-pill">
-    <span>✨ Bareilly’s First Integrated Township</span>
+    <span>Bareilly’s First Integrated Township</span>
     <span class="hero-badge-dot">•</span>
     <span class="hero-badge-hl">72+ Acres</span>
   </div>
@@ -236,7 +236,9 @@ table.grid td{border:1px solid var(--line);padding:14px}
   <p class="hero-sub">A master-planned integrated township strategically located at Lalpur along the Delhi–Lucknow Expressway. Residential plots, high-street retail, healthcare, and education united in one vibrant destination.</p>
 
   <div class="hero-plot-banner">
-    <div class="hero-plot-icon">📐</div>
+    <div class="hero-plot-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 8.7 8.7 21.3c-1 1-2.5 1-3.4 0l-2.6-2.6c-1-1-1-2.5 0-3.4L15.3 2.7c1-1 2.5-1 3.4 0l2.6 2.6c1 1 1 2.5 0 3.4Z"/><path d="m7.5 10.5 2 2"/><path d="m10.5 7.5 2 2"/><path d="m13.5 4.5 2 2"/><path d="m4.5 13.5 2 2"/></svg>
+    </div>
     <div class="hero-plot-content">
       <div class="hero-plot-label">Approved Freehold Residential Plots</div>
       <div class="hero-plot-sizes-row">
@@ -254,9 +256,9 @@ table.grid td{border:1px solid var(--line);padding:14px}
   </div>
 
   <div class="hero-points">
-    <div class="hero-point-chip"><span>📍</span> Delhi–Lucknow Expressway, Lalpur</div>
-    <div class="hero-point-chip"><span>🛡️</span> Gated Township with UP-RERA</div>
-    <div class="hero-point-chip"><span>🛍️</span> School, Mall &amp; Hospital Planned</div>
+    <div class="hero-point-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Delhi–Lucknow Expressway, Lalpur</div>
+    <div class="hero-point-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Gated Township with UP-RERA</div>
+    <div class="hero-point-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/></svg> School, Mall &amp; Hospital Planned</div>
   </div>
 
   <div class="hero-cta-row">
@@ -334,7 +336,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
     </div>
   </div>
   <div style="background:var(--card);border:1.5px solid rgba(232,163,23,0.45);border-radius:12px;padding:16px 20px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.04)">
-    <div style="font-size:12px;color:var(--kite);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">📐 Available Plot Sizes</div>
+    <div style="font-size:12px;color:var(--kite);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">Available Plot Sizes</div>
     <div style="font-weight:700;font-size:16px;color:var(--ink)">
       117 <span style="color:var(--line);margin:0 4px">|</span> 132 <span style="color:var(--line);margin:0 4px">|</span> 200 <span style="color:var(--line);margin:0 4px">|</span> 240 <span style="font-weight:600;font-size:14px;color:var(--mute)">Sq. Yards</span>
     </div>
@@ -441,13 +443,13 @@ table.grid td{border:1px solid var(--line);padding:14px}
     <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:28px;border-bottom:1px solid var(--line);padding-bottom:20px">
       <div>
         <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(214,64,58,0.1);color:var(--kite);padding:4px 12px;border-radius:999px;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px">
-          <span>📐 Investment &amp; Residential Plots</span>
+          <span>Investment &amp; Residential Plots</span>
         </div>
         <h3 style="font-family:Gloock,serif;font-size:clamp(24px,3vw,32px);color:var(--ink);margin:0 0 6px">Freehold Residential Plot Sizes</h3>
         <p style="margin:0;font-size:16px;color:var(--mute)">Choose your preferred plot size within Bareilly’s first 72+ acre integrated township.</p>
       </div>
       <div style="font-size:15px;font-weight:700;color:var(--pine);background:rgba(15,59,56,0.08);padding:8px 16px;border-radius:8px;border:1px solid rgba(15,59,56,0.15)">
-        📐 Plot Sizes: 117 | 132 | 200 | 240 Sq. Yards
+        Plot Sizes: 117 | 132 | 200 | 240 Sq. Yards
       </div>
     </div>
 
