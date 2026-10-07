@@ -19,8 +19,8 @@ a{color:inherit}
 .two > .lead, .two .lead{max-width:100%}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:1000;background:#ffffff;border-bottom:1px solid var(--line)}
 header .wrap, header .container{display:flex;align-items:center;justify-content:space-between;min-height:64px;height:auto;padding-top:10px;padding-bottom:10px;gap:14px}
-.logo{display:inline-flex;align-items:center;text-decoration:none;cursor:pointer}
-.logo img{height:42px;width:auto;max-height:44px;object-fit:contain;display:block;filter:brightness(0.92);transition:filter 0.4s ease,transform 0.4s ease}
+.logo{display:inline-flex;align-items:center;text-decoration:none;cursor:pointer;background:none;background-color:transparent}
+.logo img{height:42px;width:auto;max-height:44px;object-fit:contain;display:block;background:none;background-color:transparent;transition:filter 0.4s ease,transform 0.4s ease}
 .logo:hover img{animation:brightenDim 2s ease-in-out infinite alternate;transform:scale(1.05)}
 @keyframes brightenDim{0%{filter:brightness(1.04) contrast(1.02) drop-shadow(0 2px 8px rgba(0,95,166,0.2));}100%{filter:brightness(1.32) contrast(1.08) drop-shadow(0 4px 20px rgba(0,95,166,0.45));}}
 .logo:active img{animation:none;filter:brightness(0.85);transform:scale(0.98)}
@@ -83,6 +83,19 @@ th{font-weight:700;color:var(--mute);font-size:14px}
 .am li{padding:10px 0;border-bottom:1px solid var(--line);break-inside:avoid;font-size:16px}
 .tbd{color:var(--kite);font-weight:500}
 .band{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* Pricing Section Two-Column Architecture */
+.pricing-two-col{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,0.8fr);gap:40px;align-items:stretch}
+.pricing-table-col{margin:0;width:100%}
+.pricing-table-col table,.pricing-table{width:100%;border-collapse:collapse;margin-top:0;font-size:16px}
+.pricing-table thead tr th{padding-top:0;padding-bottom:14px;border-bottom:2px solid var(--line);font-weight:700;color:var(--mute);font-size:14px;letter-spacing:0.3px}
+.pricing-right-col{display:grid;align-items:start;height:100%}
+.payment-plans-card{position:sticky;top:24px;background:#ffffff;border:1px solid var(--line);border-radius:14px;padding:32px 28px;box-shadow:0 4px 18px rgba(0,0,0,0.04);display:flex;flex-direction:column;box-sizing:border-box}
+.payment-card-title{font-family:Gloock,Georgia,serif;font-size:24px;color:var(--ink);margin:0 0 12px;line-height:1.25}
+.payment-card-desc{margin:0 0 18px;font-size:15px;color:var(--mute);line-height:1.6}
+.payment-card-bullets{margin:0 0 24px;padding-left:20px;font-size:14.5px;color:var(--ink);display:grid;gap:10px;line-height:1.5}
+.payment-card-bullets li::marker{color:var(--kite)}
+.payment-card-cta{width:100%;display:flex;align-items:center;justify-content:center;text-align:center;box-sizing:border-box;margin-top:auto}
 form{display:grid;gap:14px;max-width:460px}
 label{font-weight:500;font-size:15px;display:grid;gap:6px}
 input,select{font:inherit;padding:12px;border:1.5px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);min-height:46px;box-sizing:border-box}
@@ -144,6 +157,9 @@ footer p{margin:0;max-width:60ch;opacity:.85;line-height:1.6}
   .hero .wrap,.hero .container{grid-template-columns:1fr;gap:36px;padding-top:36px;padding-bottom:40px;min-height:auto}
   .card{max-width:100%;width:min(440px,100%);margin:0 auto}
   .two{grid-template-columns:1fr;gap:32px}
+  .pricing-two-col{grid-template-columns:1fr;gap:32px}
+  .pricing-right-col{height:auto}
+  .payment-plans-card{position:static;top:auto}
   .overview-sidebar{position:static!important;top:auto!important}
   .about-omaxe-grid{grid-template-columns:1fr;gap:28px}
   .presence-frame-card iframe{height:1140px}
@@ -665,7 +681,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 8.7 8.7 21.3c-1 1-2.5 1-3.4 0l-2.6-2.6c-1-1-1-2.5 0-3.4L15.3 2.7c1-1 2.5-1 3.4 0l2.6 2.6c1 1 1 2.5 0 3.4Z"/><path d="m7.5 10.5 2 2"/><path d="m10.5 7.5 2 2"/><path d="m13.5 4.5 2 2"/><path d="m4.5 13.5 2 2"/></svg>
     </div>
     <div class="hero-plot-content">
-      <div class="hero-plot-label">Approved Freehold Residential Plots</div>
+      <div class="hero-plot-label">Approved Residential Plots</div>
       <div class="hero-plot-sizes-row">
         <span>Plot Sizes:</span>
         <span class="hero-plot-tag">117</span>
@@ -883,7 +899,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
         <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(214,64,58,0.1);color:var(--kite);padding:4px 12px;border-radius:999px;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px">
           <span>Investment &amp; Residential Plots</span>
         </div>
-        <h3 style="font-family:Gloock,serif;font-size:clamp(24px,3vw,32px);color:var(--ink);margin:0 0 6px">Freehold Residential Plot Sizes</h3>
+        <h3 style="font-family:Gloock,serif;font-size:clamp(24px,3vw,32px);color:var(--ink);margin:0 0 6px">Residential Plot Sizes</h3>
         <p style="margin:0;font-size:16px;color:var(--mute)">Choose your preferred plot size within Bareilly’s first 72+ acre integrated township.</p>
       </div>
       <div style="font-size:15px;font-weight:700;color:var(--pine);background:rgba(15,59,56,0.08);padding:8px 16px;border-radius:8px;border:1px solid rgba(15,59,56,0.15)">
@@ -1100,8 +1116,8 @@ Located right on the Delhi–Lucknow Expressway at Lalpur, Omaxe City Bareilly o
 
 <section id="price"><div class="container wrap">
 <h2 class="sh">Price Plan &amp; Configurations</h2>
-<div class="two">
-<div class="scroll"><table>
+<div class="pricing-two-col">
+<div class="pricing-table-col scroll"><table class="pricing-table">
 <thead><tr><th>Property Type</th><th>Plot Area</th><th>Pricing</th><th>Action</th></tr></thead>
 <tbody>
 <tr><td>Residential Plot</td><td><strong>117 Sq. Yards</strong> (~1,053 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('117 Sq. Yards')">Enquire</button></td></tr>
@@ -1111,15 +1127,17 @@ Located right on the Delhi–Lucknow Expressway at Lalpur, Omaxe City Bareilly o
 <tr><td>Residential Plot</td><td><strong>300 Sq. Yards</strong> (~2,700 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('300 Sq. Yards')">Enquire</button></td></tr>
 <tr><td>Commercial Space</td><td>High-Street Retail &amp; SCOs</td><td><span class="tbd">On Request</span></td><td><a class="btn sm" href="#f">Enquire</a></td></tr>
 </tbody></table></div>
-<div style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;justify-content:center;gap:12px;box-shadow:0 4px 16px rgba(0,0,0,0.04)">
-  <div style="font-family:Gloock,serif;font-size:22px;color:var(--ink)">Transparent Payment Plans</div>
-  <p style="margin:0;font-size:15px;color:var(--mute);line-height:1.6">Attractive construction-linked and flexible instalment plans with pre-approved home loan assistance from leading nationalized &amp; private banks.</p>
-  <ul style="margin:0;padding-left:18px;font-size:14px;color:var(--ink);display:grid;gap:6px">
+<div class="pricing-right-col">
+<div class="payment-plans-card">
+  <h3 class="payment-card-title">Transparent Payment Plans</h3>
+  <p class="payment-card-desc">Attractive construction-linked and flexible instalment plans with pre-approved home loan assistance from leading nationalized &amp; private banks.</p>
+  <ul class="payment-card-bullets">
     <li>Immediate allotment on booking token</li>
     <li>Registry &amp; possession as per UP-RERA norms</li>
     <li>Bank loan facilitation support</li>
   </ul>
-  <a class="btn" href="#f" style="width:fit-content;margin-top:6px">Request Detailed Cost Sheet</a>
+  <a class="btn payment-card-cta" href="#f">Request Detailed Cost Sheet</a>
+</div>
 </div>
 </div></div></section>
 
