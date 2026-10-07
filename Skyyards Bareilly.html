@@ -1243,9 +1243,9 @@ Located right on the Delhi–Lucknow Expressway at Lalpur, Omaxe City Bareilly o
 
 <!-- Filter Tabs -->
 <div class="filter-tabs" role="tablist" aria-label="Showcase categories">
-  <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Images <span class="filter-count">10</span></button>
-  <button class="filter-btn" data-filter="township" role="tab" aria-selected="false">Township Views <span class="filter-count">4</span></button>
-  <button class="filter-btn" data-filter="architecture" role="tab" aria-selected="false">Architecture <span class="filter-count">4</span></button>
+  <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Images <span class="filter-count">12</span></button>
+  <button class="filter-btn" data-filter="township" role="tab" aria-selected="false">Township Views <span class="filter-count">5</span></button>
+  <button class="filter-btn" data-filter="architecture" role="tab" aria-selected="false">Architecture <span class="filter-count">5</span></button>
   <button class="filter-btn" data-filter="amenities" role="tab" aria-selected="false">Amenities <span class="filter-count">2</span></button>
 </div>
 
@@ -1390,6 +1390,34 @@ Located right on the Delhi–Lucknow Expressway at Lalpur, Omaxe City Bareilly o
       </div>
     </div>
   </div>
+
+  <div class="gallery-card" data-category="architecture" data-index="10" tabindex="0" role="button" aria-label="Neoclassical Domed Tower &amp; Arcade">
+    <div class="card-media-wrap">
+      <picture>
+        <source type="image/webp" srcset="images/omaxe-domed-tower.webp">
+        <img src="images/omaxe-domed-tower.jpg" alt="Neoclassical architectural tower with classical dome, arched windows, and ground-floor shopping arcade at Omaxe" loading="lazy" decoding="async" onload="this.closest('.card-media-wrap').classList.add('loaded')">
+      </picture>
+      <div class="card-overlay">
+        <span class="card-category">Architecture</span>
+        <h4 class="card-title">Domed Tower &amp; Arcade</h4>
+        <div class="card-meta"><span>Neoclassical landmark facade</span><span class="view-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gallery-card" data-category="township" data-index="11" tabindex="0" role="button" aria-label="Illuminated Palace Tower at Night">
+    <div class="card-media-wrap">
+      <picture>
+        <source type="image/webp" srcset="images/omaxe-night-tower.webp">
+        <img src="images/omaxe-night-tower.jpg" alt="Illuminated palace tower at night with golden dome and tree-lined street boulevard at Omaxe Bareilly" loading="lazy" decoding="async" onload="this.closest('.card-media-wrap').classList.add('loaded')">
+      </picture>
+      <div class="card-overlay">
+        <span class="card-category">Township</span>
+        <h4 class="card-title">Illuminated Palace Tower</h4>
+        <div class="card-meta"><span>Night skyline &amp; boulevard view</span><span class="view-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+    </div>
+  </div>
 </div>
 </div></section>
 
@@ -1485,7 +1513,7 @@ logoImg.style.transform='';
 <!-- Full-Screen Lightbox Modal -->
 <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Full-screen image viewer">
   <div class="lightbox-topbar">
-    <div class="lightbox-counter" id="lightboxCounter">1 / 10</div>
+    <div class="lightbox-counter" id="lightboxCounter">1 / 12</div>
     <div class="lightbox-caption-area">
       <div class="lightbox-title" id="lightboxTitle">Grand Classical Boulevard &amp; Fountain Plaza</div>
       <div class="lightbox-cat" id="lightboxCat">Township Showcase</div>
@@ -1611,7 +1639,9 @@ const galleryItems = [
   { title: "Tree-Lined Internal Boulevard", category: "Township", src: "images/2.jpg", webp: "images/2.webp", alt: "Tree-lined township boulevard with paved walkways and street lighting" },
   { title: "Central Green Park & Walkways", category: "Amenities", src: "images/3.jpg", webp: "images/3.webp", alt: "Landscaped community park with lush grass and family walking trails" },
   { title: "Residents Clubhouse & Leisure Pool", category: "Amenities", src: "images/images (1).jpg", webp: "images/images (1).webp", alt: "Modern resident clubhouse and open-air swimming pool area" },
-  { title: "Paved Enclave & Streetscapes", category: "Township", src: "images/images.jpg", webp: "images/images.webp", alt: "Gated residential enclave with finished streetscaping and plots" }
+  { title: "Paved Enclave & Streetscapes", category: "Township", src: "images/images.jpg", webp: "images/images.webp", alt: "Gated residential enclave with finished streetscaping and plots" },
+  { title: "Neoclassical Domed Tower & Arcade", category: "Architecture", src: "images/omaxe-domed-tower.jpg", webp: "images/omaxe-domed-tower.webp", alt: "Neoclassical architectural tower with classical dome, arched windows, and ground-floor shopping arcade at Omaxe" },
+  { title: "Illuminated Palace Tower at Night", category: "Township", src: "images/omaxe-night-tower.jpg", webp: "images/omaxe-night-tower.webp", alt: "Illuminated palace tower at night with golden dome and tree-lined street boulevard at Omaxe Bareilly" }
 ];
 
 let activeDataset = galleryItems;
