@@ -108,39 +108,15 @@
   font-weight: 700;
   color: #0F3D38;
   text-align: center;
-  margin: 0 0 4px 0;
+  margin: 0 0 16px 0;
   line-height: 1.35;
   font-family: 'Figtree', system-ui, sans-serif;
   word-wrap: break-word;
 }
 
-.enquiry-address {
-  font-size: 13px;
-  color: #64748b;
-  text-align: center;
-  margin: 0 0 14px 0;
-  line-height: 1.4;
-}
-
-/* Selected Property Visual Pill */
+.enquiry-address,
 .enquiry-selected-prop-pill {
-  background: rgba(232, 163, 23, 0.12);
-  border: 1px solid rgba(232, 163, 23, 0.4);
-  border-radius: 6px;
-  padding: 6px 12px;
-  margin-bottom: 16px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #7c4a03;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  line-height: 1.35;
-}
-
-.enquiry-selected-prop-pill svg {
-  flex-shrink: 0;
-  color: #b45309;
+  display: none !important;
 }
 
 /* Form Layout */

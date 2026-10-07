@@ -66,15 +66,6 @@
             </div>
             
             <h3 id="enquiryModalTitle" class="enquiry-main-heading">Enquiry for Residential Plot</h3>
-            <p class="enquiry-address">72+ Acre Integrated Township • Lalpur, Delhi-Lucknow Expressway, Bareilly</p>
-            
-            <div class="enquiry-selected-prop-pill" id="enquiryPillWrap">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-              <span id="enquiryPillText">Residential Plot – 117 Sq. Yards (~1,053 sq. ft.)</span>
-            </div>
             
             <form id="enquiryForm" class="enquiry-form" novalidate>
               <input type="hidden" name="property" id="enquiryProperty" value="">
@@ -194,22 +185,11 @@
           form.appendChild(alertDiv);
         }
       }
-      if (!document.getElementById('enquiryPillWrap')) {
-        const titleEl = document.getElementById('enquiryModalTitle');
-        if (titleEl && titleEl.parentNode) {
-          const pill = document.createElement('div');
-          pill.className = 'enquiry-selected-prop-pill';
-          pill.id = 'enquiryPillWrap';
-          pill.innerHTML = `
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-              <polyline points="9 22 9 12 15 12 15 22"></polyline>
-            </svg>
-            <span id="enquiryPillText"></span>
-          `;
-          titleEl.parentNode.insertBefore(pill, titleEl.nextSibling.nextSibling || titleEl.nextSibling);
-        }
-      }
+      // Clean up any legacy address subtitle or property pill elements if present
+      const legacyAddress = modalEl.querySelector('.enquiry-address');
+      if (legacyAddress) legacyAddress.remove();
+      const legacyPill = document.getElementById('enquiryPillWrap');
+      if (legacyPill) legacyPill.remove();
     }
 
     bindModalEvents();
@@ -385,9 +365,6 @@
   function openEnquiryModal(propertyName, triggerEl) {
     ensureModalDOM();
 
-    const titleEl = document.getElementById('enquiryModalTitle');
-    const pillText = document.getElementById('enquiryPillText');
-    const pillWrap = document.getElementById('enquiryPillWrap');
     const hiddenProp = document.getElementById('enquiryProperty');
     const hiddenUrl = document.getElementById('enquiryPageUrl');
     const hiddenTime = document.getElementById('enquirySubmittedAt');
@@ -406,12 +383,6 @@
     // Set headings and hidden values
     if (titleEl) {
       titleEl.textContent = `Enquiry for ${cleanProperty}`;
-    }
-    if (pillText) {
-      pillText.textContent = cleanProperty;
-    }
-    if (pillWrap) {
-      pillWrap.style.display = 'flex';
     }
     if (hiddenProp) {
       hiddenProp.value = cleanProperty;
