@@ -266,8 +266,27 @@ table.grid td{border:1px solid var(--line);padding:14px}
 .lightbox-btn:hover{background:rgba(255,255,255,0.3);transform:scale(1.08)}
 .lightbox-stage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;padding:12px 60px;user-select:none}
 .lightbox-img-wrapper{max-width:90vw;max-height:72vh;position:relative;display:flex;align-items:center;justify-content:center}
-.lightbox-img{max-width:100%;max-height:72vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 50px rgba(0,0,0,0.6);opacity:0;transform:scale(0.96);transition:opacity 0.3s cubic-bezier(0.2,0.8,0.2,1),transform 0.3s cubic-bezier(0.2,0.8,0.2,1)}
+.lightbox-img{max-width:100%;max-height:72vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 50px rgba(0,0,0,0.6);opacity:0;transform:scale(0.96);transition:opacity 0.3s cubic-bezier(0.2,0.8,0.2,1),transform 0.3s cubic-bezier(0.2,0.8,0.2,1);cursor:zoom-in}
 .lightbox-img.loaded{opacity:1;transform:scale(1)}
+.lightbox-img.is-zoomed{transform:scale(1.85);cursor:zoom-out;box-shadow:0 30px 80px rgba(0,0,0,0.8);z-index:20}
+
+/* Overview Collage Styling */
+.overview-collage-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;box-shadow:0 8px 24px rgba(0,0,0,0.07);position:relative}
+.collage-header-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;padding:0 2px}
+.collage-header-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(15,59,56,0.08);color:var(--pine);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.6px;padding:4px 12px;border-radius:999px}
+.collage-click-hint{font-size:12px;color:var(--mute);font-weight:600;display:flex;align-items:center;gap:4px}
+.overview-collage-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.collage-item{position:relative;border-radius:10px;overflow:hidden;cursor:zoom-in;background:var(--bg);border:1px solid var(--line);transition:transform 0.3s cubic-bezier(0.2,0.8,0.2,1),box-shadow 0.3s ease}
+.collage-item:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.12);z-index:2}
+.collage-primary{grid-column:span 2;aspect-ratio:16/7.5}
+.collage-sub{aspect-ratio:16/9}
+.collage-item picture,.collage-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s cubic-bezier(0.2,0.8,0.2,1)}
+.collage-item:hover img{transform:scale(1.05)}
+.collage-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,35,33,0.85) 0%,rgba(15,35,33,0.15) 55%,transparent 100%);display:flex;justify-content:space-between;align-items:flex-end;padding:8px 10px;color:#ffffff;opacity:0.9;transition:opacity 0.25s ease}
+.collage-item:hover .collage-overlay{opacity:1}
+.collage-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;background:rgba(0,0,0,0.45);backdrop-filter:blur(4px);padding:3px 8px;border-radius:4px;color:#fff}
+.collage-zoom-icon{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.25);backdrop-filter:blur(4px);color:#fff;transition:all 0.2s}
+.collage-item:hover .collage-zoom-icon{background:var(--gold);color:#14201f;transform:scale(1.1)}
 .nav-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;min-width:48px;min-height:48px;border-radius:50%;background:rgba(255,255,255,0.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.25);color:#ffffff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;z-index:5}
 .nav-arrow:hover{background:rgba(255,255,255,0.35);transform:translateY(-50%) scale(1.1)}
 .nav-prev{left:20px}
@@ -764,11 +783,59 @@ table.grid td{border:1px solid var(--line);padding:14px}
 </div>
 
 <div class="overview-sidebar">
-  <div style="border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,0.08)">
-    <picture>
-      <source type="image/webp" srcset="images/1.webp">
-      <img src="images/1.jpg" alt="Omaxe City Bareilly - 72+ Acre Integrated Township at Lalpur" style="width:100%;height:auto;object-fit:cover;display:block">
-    </picture>
+  <!-- Interactive Zoomable Collage from Images 2 -->
+  <div class="overview-collage-card" aria-label="Omaxe City Overview Visual Collage - Click any view to zoom">
+    <div class="collage-header-bar">
+      <div class="collage-header-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        <span>Interactive Collage • 3 Views</span>
+      </div>
+      <span class="collage-click-hint">Click to Zoom</span>
+    </div>
+
+    <div class="overview-collage-grid">
+      <!-- Main Top Panoramic View -->
+      <div class="collage-item collage-primary" data-collage-index="0" role="button" tabindex="0" aria-label="Township Aerial Perspective - Click to zoom">
+        <picture>
+          <source type="image/webp" srcset="images/overview-collage-1.webp">
+          <img src="images/overview-collage-1.jpg" alt="Omaxe City Bareilly - Master Panoramic Perspective" loading="lazy">
+        </picture>
+        <div class="collage-overlay">
+          <span class="collage-tag">Master Panorama</span>
+          <span class="collage-zoom-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- Bottom Left View -->
+      <div class="collage-item collage-sub" data-collage-index="1" role="button" tabindex="0" aria-label="Township Architectural Enclave - Click to zoom">
+        <picture>
+          <source type="image/webp" srcset="images/overview-collage-2.webp">
+          <img src="images/overview-collage-2.jpg" alt="Omaxe City Bareilly - Modern Architectural Enclave" loading="lazy">
+        </picture>
+        <div class="collage-overlay">
+          <span class="collage-tag">Enclave View</span>
+          <span class="collage-zoom-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- Bottom Right View -->
+      <div class="collage-item collage-sub" data-collage-index="2" role="button" tabindex="0" aria-label="Integrated Township Living - Click to zoom">
+        <picture>
+          <source type="image/webp" srcset="images/overview-collage-3.webp">
+          <img src="images/overview-collage-3.jpg" alt="Omaxe City Bareilly - Integrated Township Living" loading="lazy">
+        </picture>
+        <div class="collage-overlay">
+          <span class="collage-tag">Boulevard &amp; Greens</span>
+          <span class="collage-zoom-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
   <div style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:center">
     <div style="border-right:1px solid var(--line);padding-right:12px">
@@ -1382,6 +1449,9 @@ logoImg.style.transform='';
       <div class="lightbox-cat" id="lightboxCat">Township Overview</div>
     </div>
     <div class="lightbox-actions">
+      <button class="lightbox-btn" id="lightboxZoomBtn" aria-label="Toggle zoom (Z)" title="Toggle zoom">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" id="lightboxZoomIcon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      </button>
       <button class="lightbox-btn" id="lightboxCloseBtn" aria-label="Close viewer (Escape)">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
@@ -1483,6 +1553,12 @@ logoImg.style.transform='';
 
 <script>
 // Lightbox Data & Logic
+const overviewCollageItems = [
+  { title: "Omaxe City - Master Panoramic Perspective", category: "Township Overview", src: "images/overview-collage-1.jpg", webp: "images/overview-collage-1.webp", alt: "Omaxe City Bareilly - Master Panoramic Perspective" },
+  { title: "Omaxe City - Modern Enclave Architecture", category: "Township Architecture", src: "images/overview-collage-2.jpg", webp: "images/overview-collage-2.webp", alt: "Omaxe City Bareilly - Modern Architectural Enclave" },
+  { title: "Omaxe City - Township Living & Green Boulevards", category: "Integrated Living", src: "images/overview-collage-3.jpg", webp: "images/overview-collage-3.webp", alt: "Omaxe City Bareilly - Integrated Township Living" }
+];
+
 const galleryItems = [
   { title: "Grand Township Panorama", category: "Township", src: "images/gallery_1670824275618.jpg", webp: "images/gallery_1670824275618.webp", alt: "Aerial panorama of the Omaxe Bareilly township master plan with landscaped parks and modern avenues" },
   { title: "The Omaxe State Pavilion", category: "Architecture", src: "images/the-omaxe-state-project-project-large-image1-6801-opt-c86a79f3-6f68-4e04-800e-ead1fb5ceb0a.jpg", webp: "images/the-omaxe-state-project-project-large-image1-6801-opt-c86a79f3-6f68-4e04-800e-ead1fb5ceb0a.webp", alt: "The Omaxe State architectural facade and commercial promenade" },
@@ -1493,7 +1569,10 @@ const galleryItems = [
   { title: "Paved Enclave & Streetscapes", category: "Township", src: "images/images.jpg", webp: "images/images.webp", alt: "Gated residential enclave with finished streetscaping and plots" }
 ];
 
+let activeDataset = galleryItems;
 let currentIndex = 0;
+let isZoomed = false;
+
 const modal = document.getElementById('lightboxModal');
 const lbImg = document.getElementById('lightboxImg');
 const lbCounter = document.getElementById('lightboxCounter');
@@ -1503,11 +1582,34 @@ const thumbsContainer = document.getElementById('lightboxThumbs');
 const prevBtn = document.getElementById('lightboxPrevBtn');
 const nextBtn = document.getElementById('lightboxNextBtn');
 const closeBtn = document.getElementById('lightboxCloseBtn');
+const lbZoomBtn = document.getElementById('lightboxZoomBtn');
 const stage = document.getElementById('lightboxStage');
+
+function resetZoom() {
+  isZoomed = false;
+  if (lbImg) lbImg.classList.remove('is-zoomed');
+  const icon = document.getElementById('lightboxZoomIcon');
+  if (icon) {
+    icon.innerHTML = '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>';
+  }
+  if (lbZoomBtn) lbZoomBtn.setAttribute('title', 'Zoom In (Z)');
+}
+
+function toggleZoom() {
+  isZoomed = !isZoomed;
+  if (lbImg) lbImg.classList.toggle('is-zoomed', isZoomed);
+  const icon = document.getElementById('lightboxZoomIcon');
+  if (icon) {
+    icon.innerHTML = isZoomed
+      ? '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/>'
+      : '<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>';
+  }
+  if (lbZoomBtn) lbZoomBtn.setAttribute('title', isZoomed ? 'Zoom Out (Z)' : 'Zoom In (Z)');
+}
 
 function initThumbnails() {
   thumbsContainer.innerHTML = '';
-  galleryItems.forEach((item, index) => {
+  activeDataset.forEach((item, index) => {
     const btn = document.createElement('button');
     btn.className = 'thumb-btn ' + (index === currentIndex ? 'active' : '');
     btn.setAttribute('aria-label', 'Jump to image ' + (index + 1) + ': ' + item.title);
@@ -1518,11 +1620,12 @@ function initThumbnails() {
 }
 
 function showImage(index) {
-  if (index < 0) index = galleryItems.length - 1;
-  if (index >= galleryItems.length) index = 0;
+  resetZoom();
+  if (index < 0) index = activeDataset.length - 1;
+  if (index >= activeDataset.length) index = 0;
   currentIndex = index;
 
-  const item = galleryItems[currentIndex];
+  const item = activeDataset[currentIndex];
   lbImg.classList.remove('loaded');
   lbImg.src = item.webp || item.src;
   lbImg.alt = item.alt;
@@ -1530,7 +1633,7 @@ function showImage(index) {
 
   lbTitle.textContent = item.title;
   lbCat.textContent = item.category;
-  lbCounter.textContent = (currentIndex + 1) + ' / ' + galleryItems.length;
+  lbCounter.textContent = (currentIndex + 1) + ' / ' + activeDataset.length;
 
   const thumbBtns = thumbsContainer.querySelectorAll('.thumb-btn');
   thumbBtns.forEach((btn, i) => {
@@ -1541,7 +1644,8 @@ function showImage(index) {
   });
 }
 
-function openLightbox(index) {
+function openLightbox(index, dataset) {
+  activeDataset = dataset || galleryItems;
   initThumbnails();
   showImage(index);
   modal.classList.add('active');
@@ -1550,9 +1654,13 @@ function openLightbox(index) {
 }
 
 function closeLightbox() {
+  resetZoom();
   modal.classList.remove('active');
   document.body.style.overflow = '';
 }
+
+if (lbZoomBtn) lbZoomBtn.addEventListener('click', toggleZoom);
+if (lbImg) lbImg.addEventListener('click', toggleZoom);
 
 if (prevBtn && nextBtn && closeBtn) {
   prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
@@ -1571,6 +1679,7 @@ window.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
   if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
   if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+  if (e.key === 'z' || e.key === 'Z') toggleZoom();
 });
 
 // Touch swipe gestures
@@ -1592,19 +1701,31 @@ if (stage) {
   }, { passive: true });
 }
 
+// Overview Collage click listeners
+document.querySelectorAll('.collage-item').forEach(item => {
+  const idx = parseInt(item.getAttribute('data-collage-index'), 10);
+  item.addEventListener('click', () => openLightbox(idx, overviewCollageItems));
+  item.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openLightbox(idx, overviewCollageItems);
+    }
+  });
+});
+
 document.querySelectorAll('.gallery-card').forEach(card => {
   const idx = parseInt(card.getAttribute('data-index'), 10);
-  card.addEventListener('click', () => openLightbox(idx));
+  card.addEventListener('click', () => openLightbox(idx, galleryItems));
   card.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(idx); }
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(idx, galleryItems); }
   });
 });
 
 const heroCard = document.getElementById('heroCard');
 if (heroCard) {
-  heroCard.addEventListener('click', () => openLightbox(0));
+  heroCard.addEventListener('click', () => openLightbox(0, galleryItems));
   heroCard.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(0); }
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(0, galleryItems); }
   });
 }
 
