@@ -8,8 +8,6 @@
 <style>
 :root{--bg:#f4f6f5;--ink:#14201f;--mute:#4d5f5c;--pine:#0f3b38;--pine-ink:#f4f6f5;--kite:#d6403a;--gold:#e8a317;--line:#cfd8d5;--card:#ffffff;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1514;--ink:#e9f0ee;--mute:#9db0ac;--pine:#16524d;--line:#243532;--card:#142120}}
-:root[data-theme="dark"]{--bg:#0d1514;--ink:#e9f0ee;--mute:#9db0ac;--pine:#16524d;--line:#243532;--card:#142120}
 html{scroll-padding-top:80px;scroll-behavior:smooth}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Figtree,system-ui,sans-serif;overflow-x:hidden}
@@ -33,8 +31,6 @@ nav a{text-decoration:none;color:var(--mute);transition:color 0.2s;white-space:n
 nav a:hover,nav a:focus-visible{color:var(--ink)}
 
 .header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.theme-toggle-btn{min-height:44px;padding:8px 16px;font-size:13.5px;font-weight:600;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s ease}
-.theme-toggle-btn:hover{border-color:var(--pine)}
 
 .nav-toggle-btn{display:none;min-width:44px;min-height:44px;width:44px;height:44px;padding:0;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px;transition:all 0.25s ease;z-index:1002}
 .nav-toggle-btn:hover{border-color:var(--pine);background:var(--bg)}
@@ -51,29 +47,29 @@ nav a:hover,nav a:focus-visible{color:var(--ink)}
 .btn.sm{min-height:44px;padding:10px 18px;font-size:14.5px}
 .btn.alt{background:transparent;color:inherit;border:1.5px solid currentColor}
 
-.hero{background:var(--pine);color:var(--pine-ink);overflow:hidden;position:relative}
+.hero{background:radial-gradient(ellipse at 85% 15%, rgba(232,163,23,0.08) 0%, transparent 55%), radial-gradient(ellipse at 15% 85%, rgba(214,64,58,0.04) 0%, transparent 50%), linear-gradient(150deg, #fdfbf7 0%, #f6f0e4 100%);color:var(--ink);overflow:hidden;position:relative;border-bottom:1px solid rgba(207,216,213,0.7)}
 .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center;min-height:520px;padding-top:52px;padding-bottom:52px}
 .hero-intro{display:flex;flex-direction:column;gap:16px;z-index:2}
-.hero-badge-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.22);padding:6px 16px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--pine-ink);width:fit-content}
-.hero-badge-dot{opacity:0.4}
-.hero-badge-hl{color:var(--gold);font-weight:700}
-.hero-title{font-family:Gloock,serif;font-size:clamp(34px,5.2vw,56px);line-height:1.12;margin:0;color:#ffffff}
-.hero-sub{font-size:clamp(16px,1.9vw,19px);line-height:1.6;opacity:0.92;margin:0;max-width:54ch;color:var(--pine-ink)}
-.hero-plot-banner{background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);border:1.5px solid rgba(232,163,23,0.7);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 8px 24px rgba(0,0,0,0.16);flex-wrap:wrap}
+.hero-badge-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(232,163,23,0.14);backdrop-filter:blur(8px);border:1px solid rgba(232,163,23,0.35);padding:6px 16px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--ink);width:fit-content}
+.hero-badge-dot{color:var(--gold);opacity:0.8}
+.hero-badge-hl{color:var(--kite);font-weight:700}
+.hero-title{font-family:Gloock,serif;font-size:clamp(34px,5.2vw,56px);line-height:1.12;margin:0;color:var(--ink)}
+.hero-sub{font-size:clamp(16px,1.9vw,19px);line-height:1.6;opacity:1;margin:0;max-width:54ch;color:var(--mute)}
+.hero-plot-banner{background:#ffffff;backdrop-filter:blur(10px);border:1.5px solid rgba(232,163,23,0.55);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px;box-shadow:0 8px 24px rgba(20,32,31,0.06);flex-wrap:wrap}
 .hero-plot-icon{display:flex;align-items:center;justify-content:center;line-height:1}
 .hero-plot-content{flex:1;min-width:240px}
-.hero-plot-label{font-size:11.5px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--gold);margin-bottom:3px}
-.hero-plot-sizes-row{font-size:clamp(15px,1.8vw,17.5px);font-weight:700;color:#ffffff;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hero-plot-label{font-size:11.5px;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--kite);margin-bottom:3px}
+.hero-plot-sizes-row{font-size:clamp(15px,1.8vw,17.5px);font-weight:700;color:var(--ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .hero-plot-tag{background:var(--gold);color:#14201f;padding:2px 8px;border-radius:5px;font-weight:800;font-size:14.5px}
-.plot-sep{opacity:0.5}
-.plot-unit{font-weight:600;font-size:14.5px;color:rgba(255,255,255,0.9)}
-.hero-points{display:flex;gap:14px;flex-wrap:wrap;font-size:14.5px;font-weight:500;color:rgba(255,255,255,0.85);margin-top:4px}
-.hero-point-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,0.15);padding:6px 14px;border-radius:6px;border:1px solid rgba(255,255,255,0.1);min-height:36px}
+.plot-sep{opacity:0.4;color:var(--mute)}
+.plot-unit{font-weight:600;font-size:14.5px;color:var(--mute)}
+.hero-points{display:flex;gap:14px;flex-wrap:wrap;font-size:14.5px;font-weight:500;color:var(--ink);margin-top:4px}
+.hero-point-chip{display:inline-flex;align-items:center;gap:8px;background:#ffffff;padding:6px 14px;border-radius:6px;border:1px solid var(--line);min-height:36px;box-shadow:0 2px 6px rgba(0,0,0,0.03)}
 .hero-cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:6px}
-.hero-cta-btn{min-height:46px;background:var(--gold);color:#14201f;font-weight:700;padding:13px 26px;border-radius:6px;transition:transform 0.2s,filter 0.2s}
+.hero-cta-btn{min-height:46px;background:var(--kite);color:#ffffff;font-weight:700;padding:13px 26px;border-radius:6px;transition:transform 0.2s,filter 0.2s;box-shadow:0 4px 14px rgba(214,64,58,0.25)}
 .hero-cta-btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
-.hero-sec-btn{min-height:46px;border-color:rgba(255,255,255,0.4);color:#ffffff;padding:13px 24px;border-radius:6px;transition:all 0.2s}
-.hero-sec-btn:hover{border-color:#ffffff;background:rgba(255,255,255,0.1)}
+.hero-sec-btn{min-height:46px;border:1.5px solid var(--ink);color:var(--ink);padding:13px 24px;border-radius:6px;transition:all 0.2s;background:transparent}
+.hero-sec-btn:hover{border-color:var(--kite);background:var(--kite);color:#ffffff}
 section{padding:76px 0}
 section h2{font-size:clamp(28px,4vw,44px);margin-bottom:18px}
 .lead{max-width:62ch;color:var(--mute);font-size:clamp(16px,1.1vw,17.5px);line-height:1.65}
@@ -156,8 +152,6 @@ footer p{margin:0;max-width:60ch;opacity:.85;line-height:1.6}
 }
 
 @media(max-width:600px){
-  .theme-toggle-btn{padding:8px 12px;min-width:44px}
-  .theme-toggle-btn #themeLabel{display:none}
   header .wrap,header .container{gap:8px}
   .logo img{height:36px;max-height:38px}
   .btn.alt.sm{padding:8px 14px;font-size:13.5px}
@@ -179,8 +173,8 @@ footer p{margin:0;max-width:60ch;opacity:.85;line-height:1.6}
 }
 
 header .logo small{font:500 14px Figtree;color:var(--mute)}
-.card{background:var(--bg);color:var(--ink);border:3px solid var(--gold);border-radius:6px;padding:20px;display:grid;gap:12px;max-width:340px;text-align:center}
-.card .pill{background:var(--pine);color:var(--pine-ink);padding:10px;border-radius:4px;font-family:Gloock,serif;font-size:19px}
+.card{background:#ffffff;color:var(--ink);border:2.5px solid var(--gold);border-radius:8px;padding:22px;display:grid;gap:12px;max-width:340px;text-align:center;box-shadow:0 12px 32px rgba(20,32,31,0.08)}
+.card .pill{background:var(--pine);color:#ffffff;padding:10px;border-radius:4px;font-family:Gloock,serif;font-size:19px}
 .card .addr{margin:0;font-size:15px;color:var(--mute)}
 .card .chk{display:flex;gap:8px;font-size:13px;text-align:left;align-items:flex-start}
 .card .chk input{margin-top:3px}
@@ -283,9 +277,6 @@ table.grid td{border:1px solid var(--line);padding:14px}
 .dist-dest{display:flex;align-items:center;gap:12px;font-weight:500}
 .dist-icon{width:32px;height:32px;border-radius:8px;background:rgba(0,95,166,0.08);color:var(--pine);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
 .time-pill{display:inline-block;font-weight:700;font-size:14px;color:var(--pine);background:rgba(15,59,56,0.08);padding:4px 14px;border-radius:999px;white-space:nowrap}
-:root[data-theme="dark"] .dist-icon{background:rgba(22,82,77,0.3);color:#a8dfd8}
-:root[data-theme="dark"] .time-pill{background:rgba(22,82,77,0.35);color:#a8dfd8}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .dist-icon{background:rgba(22,82,77,0.3);color:#a8dfd8}:root:not([data-theme="light"]) .time-pill{background:rgba(22,82,77,0.35);color:#a8dfd8}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.001ms!important;transition-duration:0.001ms!important}}
 
 /* ==========================================================================
@@ -517,16 +508,6 @@ table.grid td{border:1px solid var(--line);padding:14px}
   display: inline-block;
   margin-bottom: 4px;
 }
-:root[data-theme="dark"] .policy-modal-badge {
-  color: #a8dfd8;
-  background: rgba(22, 82, 77, 0.35);
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .policy-modal-badge {
-    color: #a8dfd8;
-    background: rgba(22, 82, 77, 0.35);
-  }
-}
 .policy-modal-title {
   font-family: Gloock, Georgia, serif;
   font-size: clamp(20px, 3vw, 25px);
@@ -626,14 +607,6 @@ table.grid td{border:1px solid var(--line);padding:14px}
   font-weight: 600;
   text-decoration: underline;
 }
-:root[data-theme="dark"] .policy-contact-list a {
-  color: #5eead4;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .policy-contact-list a {
-    color: #5eead4;
-  }
-}
 .policy-modal-footer {
   padding: 14px 24px;
   border-top: 1px solid var(--line);
@@ -667,10 +640,6 @@ table.grid td{border:1px solid var(--line);padding:14px}
 <a class="logo" href="#top" aria-label="Omaxe Bareilly"><img src="omaxe-logo.png" alt="Omaxe - Turning dreams into reality"></a>
 <nav id="mainNav" aria-label="Main"><a href="#overview">Overview</a><a href="#about-omaxe">About Omaxe</a><a href="#presence">Presence</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#plans">Floor plans</a><a href="#location">Location</a><a href="#enquire">Contact</a></nav>
 <div class="header-actions">
-<button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle light and dark mode">
-  <svg id="themeIcon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  <span id="themeLabel">Dark Mode</span>
-</button>
 <a class="btn alt sm" href="#enquire">Brochure</a>
 <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
   <span class="nav-toggle-bar"></span>
@@ -706,6 +675,8 @@ table.grid td{border:1px solid var(--line);padding:14px}
         <span class="hero-plot-tag">200</span>
         <span class="plot-sep">|</span>
         <span class="hero-plot-tag">240</span>
+        <span class="plot-sep">|</span>
+        <span class="hero-plot-tag">300</span>
         <span class="plot-unit">Sq. Yards</span>
       </div>
     </div>
@@ -713,7 +684,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
 
   <div class="hero-points">
     <div class="hero-point-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Delhi–Lucknow Expressway, Lalpur</div>
-    <div class="hero-point-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Gated Township with UP-RERA</div>
+    <div class="hero-point-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Integrated Township</div>
     <div class="hero-point-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/></svg> School, Mall &amp; Hospital Planned</div>
   </div>
 
@@ -726,18 +697,14 @@ table.grid td{border:1px solid var(--line);padding:14px}
 <form id="f" class="card" aria-label="Enquiry form">
 <div class="pill">Omaxe City, Bareilly</div>
 <b>72+ Acre Integrated Township</b>
-<p class="addr">Lalpur, Delhi–Lucknow Expressway, Bareilly</p>
+<p class="addr">National Highway, near Dohra road, Lalpur, Bareilly, Uttar Pradesh 243123</p>
 <b>Enquire now</b>
 <input name="n" placeholder="Full name" required autocomplete="name" aria-label="Full name">
 <input name="p" type="tel" placeholder="Phone" required autocomplete="tel" aria-label="Phone">
 <label class="chk"><input type="checkbox" required checked> I agree to be contacted about this project</label>
 <button class="btn" type="submit">Submit</button>
-<div class="rera">
-  <div>RERA no: <span class="tbd" style="font-weight:700">Coming Soon</span></div>
-  <div>Check at <a href="https://www.up-rera.in" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">www.up-rera.in</a></div>
-  <div style="margin-top:6px;padding-top:6px;border-top:1px dashed var(--line);font-size:12px">
-    <a href="#privacy-policy" class="privacy-modal-btn" style="color:var(--mute);text-decoration:underline;cursor:pointer;font-weight:500">Privacy Policy</a>
-  </div>
+<div style="margin-top:4px;font-size:12px;text-align:center">
+  <a href="#privacy-policy" class="privacy-modal-btn" style="color:var(--mute);text-decoration:underline;cursor:pointer;font-weight:500">Privacy Policy</a>
 </div>
 </form>
 </div></div>
@@ -800,7 +767,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
   <div style="background:var(--card);border:1.5px solid rgba(232,163,23,0.45);border-radius:12px;padding:16px 20px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.04)">
     <div style="font-size:12px;color:var(--kite);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px">Available Plot Sizes</div>
     <div style="font-weight:700;font-size:16px;color:var(--ink)">
-      117 <span style="color:var(--line);margin:0 4px">|</span> 132 <span style="color:var(--line);margin:0 4px">|</span> 200 <span style="color:var(--line);margin:0 4px">|</span> 240 <span style="font-weight:600;font-size:14px;color:var(--mute)">Sq. Yards</span>
+      117 <span style="color:var(--line);margin:0 4px">|</span> 132 <span style="color:var(--line);margin:0 4px">|</span> 200 <span style="color:var(--line);margin:0 4px">|</span> 240 <span style="color:var(--line);margin:0 4px">|</span> 300 <span style="font-weight:600;font-size:14px;color:var(--mute)">Sq. Yards</span>
     </div>
   </div>
 </div>
@@ -920,7 +887,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
         <p style="margin:0;font-size:16px;color:var(--mute)">Choose your preferred plot size within Bareilly’s first 72+ acre integrated township.</p>
       </div>
       <div style="font-size:15px;font-weight:700;color:var(--pine);background:rgba(15,59,56,0.08);padding:8px 16px;border-radius:8px;border:1px solid rgba(15,59,56,0.15)">
-        Plot Sizes: 117 | 132 | 200 | 240 Sq. Yards
+        Plot Sizes: 117 | 132 | 200 | 240 | 300 Sq. Yards
       </div>
     </div>
 
@@ -984,6 +951,21 @@ table.grid td{border:1px solid var(--line);padding:14px}
           <li>Maximum Appreciation Potential</li>
         </ul>
         <button class="plot-select-btn" onclick="selectPlotSize('240 Sq. Yards')">Enquire 240 Sq. Yd</button>
+      </div>
+
+      <!-- Plot 5: 300 Sq. Yards -->
+      <div class="plot-spec-card">
+        <div class="plot-spec-badge">Imperial Estate</div>
+        <div class="plot-size-num">300</div>
+        <div class="plot-size-unit">Sq. Yards</div>
+        <div class="plot-metric-sub">~2,700 Sq. Ft. • ~250.8 Sq. Mtr.</div>
+        <ul class="plot-features-list">
+          <li>Expansive Frontage &amp; Siting</li>
+          <li>Space for Private Lawn &amp; Driveway</li>
+          <li>Ideal for 5+ BHK Bespoke Luxury Villa</li>
+          <li>Highest Prestige &amp; Appreciation</li>
+        </ul>
+        <button class="plot-select-btn" onclick="selectPlotSize('300 Sq. Yards')">Enquire 300 Sq. Yd</button>
       </div>
 
     </div>
@@ -1126,6 +1108,7 @@ Located right on the Delhi–Lucknow Expressway at Lalpur, Omaxe City Bareilly o
 <tr><td>Residential Plot</td><td><strong>132 Sq. Yards</strong> (~1,188 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('132 Sq. Yards')">Enquire</button></td></tr>
 <tr><td>Residential Plot</td><td><strong>200 Sq. Yards</strong> (~1,800 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('200 Sq. Yards')">Enquire</button></td></tr>
 <tr><td>Residential Plot</td><td><strong>240 Sq. Yards</strong> (~2,160 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('240 Sq. Yards')">Enquire</button></td></tr>
+<tr><td>Residential Plot</td><td><strong>300 Sq. Yards</strong> (~2,700 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('300 Sq. Yards')">Enquire</button></td></tr>
 <tr><td>Commercial Space</td><td>High-Street Retail &amp; SCOs</td><td><span class="tbd">On Request</span></td><td><a class="btn sm" href="#f">Enquire</a></td></tr>
 </tbody></table></div>
 <div style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;justify-content:center;gap:12px;box-shadow:0 4px 16px rgba(0,0,0,0.04)">
@@ -1288,19 +1271,19 @@ Located right on the Delhi–Lucknow Expressway at Lalpur, Omaxe City Bareilly o
 <div class="two" style="align-items:stretch">
 <div>
 <h3 style="font-size:22px;margin-bottom:14px;font-family:Gloock,serif">Strategic Highway Connectivity</h3>
-<p class="lead" style="margin-bottom:20px;font-size:15.5px">Located on the National Highway corridor near Dohra Road, Lalpur — ensuring seamless connectivity to commercial hubs, transit terminals, and residential zones.</p>
+<p class="lead" style="margin-bottom:20px;font-size:15.5px">Located on National Highway, near Dohra road, Lalpur, Bareilly, Uttar Pradesh 243123 — ensuring seamless connectivity to commercial hubs, transit terminals, and residential zones.</p>
 <ul class="am one"><li>Delhi–Lucknow Expressway (Lalpur)</li><li>Phoenix United Mall</li><li>Railway station and bus stand</li><li>Schools, colleges and hospitals</li><li>Bareilly Airport</li></ul>
 </div>
 <div class="map-card" style="border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card);box-shadow:0 8px 24px rgba(0,0,0,0.06);display:flex;flex-direction:column;min-height:380px">
 <div style="position:relative;width:100%;flex:1;min-height:300px">
-<iframe title="Omaxe Bareilly Location - National Highway, near Dohra road, Lalpur" src="https://www.google.com/maps?q=National+Highway,+near+Dohra+road,+Lalpur,+Bareilly,+Uttar+Pradesh+243006&amp;output=embed" width="100%" height="100%" style="border:0;width:100%;height:100%;min-height:300px;display:block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe title="Omaxe Bareilly Location - National Highway, near Dohra road, Lalpur, Bareilly, Uttar Pradesh 243123" src="https://www.google.com/maps?q=National+Highway,+near+Dohra+road,+Lalpur,+Bareilly,+Uttar+Pradesh+243123&amp;output=embed" width="100%" height="100%" style="border:0;width:100%;height:100%;min-height:300px;display:block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <div style="padding:12px 16px;background:var(--bg);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
 <span style="font-size:13.5px;color:var(--mute);display:flex;align-items:center;gap:6px">
 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--kite);flex-shrink:0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-National Highway, near Dohra road, Lalpur, Bareilly, UP 243006
+National Highway, near Dohra road, Lalpur, Bareilly, Uttar Pradesh 243123
 </span>
-<a href="https://www.google.com/maps/search/?api=1&amp;query=National+Highway,+near+Dohra+road,+Lalpur,+Bareilly,+Uttar+Pradesh+243006" target="_blank" rel="noopener noreferrer" style="font-size:13px;font-weight:600;color:var(--kite);text-decoration:none;display:inline-flex;align-items:center;gap:4px">
+<a href="https://www.google.com/maps/search/?api=1&amp;query=National+Highway,+near+Dohra+road,+Lalpur,+Bareilly,+Uttar+Pradesh+243123" target="_blank" rel="noopener noreferrer" style="font-size:13px;font-weight:600;color:var(--kite);text-decoration:none;display:inline-flex;align-items:center;gap:4px">
 Open in Maps <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
 </a>
 </div>
@@ -1322,7 +1305,7 @@ Open in Maps <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke=
 <div style="background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px;display:grid;gap:16px">
 <div>
 <strong style="display:block;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;color:var(--mute);margin-bottom:4px">Office Address</strong>
-<p style="margin:0;font-size:16px;line-height:1.5">SKY YARDS JHM Ace Commercial, Dohra Road, Bareilly, U.P. 243005</p>
+<p style="margin:0;font-size:16px;line-height:1.5">National Highway, near Dohra road, Lalpur, Bareilly, Uttar Pradesh 243123</p>
 </div>
 <div style="border-top:1px solid var(--line);padding-top:14px">
 <strong style="display:block;font-size:13px;text-transform:uppercase;letter-spacing:0.5px;color:var(--mute);margin-bottom:4px">Phone Numbers</strong>
@@ -1343,7 +1326,7 @@ Open in Maps <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke=
 </main>
 <footer><div class="container wrap">
 <p><b>Disclaimer:</b> This page is for information only and is not an offer. Prices are subject to change without notice and units are subject to availability. Images are representative. We may send updates to the number or email you provide.</p>
-<p style="font-size:13px;opacity:0.85;margin-top:10px">Office: SKY YARDS JHM Ace Commercial, Dohra Road, Bareilly, U.P. 243005 &bull; Phone: 08534026777, 08218095851 &bull; Email: skyyardsofficial@gmail.com &bull; <a href="#privacy-policy" class="privacy-modal-btn" style="color:inherit;text-decoration:underline;cursor:pointer">Privacy Policy</a></p>
+<p style="font-size:13px;opacity:0.85;margin-top:10px">Office: National Highway, near Dohra road, Lalpur, Bareilly, Uttar Pradesh 243123 &bull; Phone: 08534026777, 08218095851 &bull; Email: skyyardsofficial@gmail.com &bull; <a href="#privacy-policy" class="privacy-modal-btn" style="color:inherit;text-decoration:underline;cursor:pointer">Privacy Policy</a></p>
 </div></footer>
 <script>
 document.getElementById('f').addEventListener('submit',function(e){
@@ -1422,7 +1405,7 @@ logoImg.style.transform='';
         <h4>Disclaimer</h4>
         <p>Thank you for visiting our web site. This privacy policy tells you how we use personal information collected at this site. Please read this privacy policy carefully before using this website or submitting any personal information. By using the site, you are accepting the practices described in this privacy policy. These practices may be changed, but any changes will be posted and changes will only apply to activities and information on a going forward, not retroactive basis. You are encouraged to review the privacy policy whenever you visit the site to make sure that you understand how any personal information you provide will be used.</p>
         <div class="policy-callout">
-          <strong>Project Notice:</strong> This web site is for informational purposes only and is not an offer. Prices are subject to change without notice and units are subject to availability. Images are representative. We may send updates to the number or email you provide. RERA registration is in process (RERA no: Coming Soon &bull; Check at www.up-rera.in).
+          <strong>Project Notice:</strong> This web site is for informational purposes only and is not an offer. Prices are subject to change without notice and units are subject to availability. Images are representative. We may send updates to the number or email you provide.
         </div>
       </div>
 
@@ -1467,7 +1450,7 @@ logoImg.style.transform='';
         <p>If you have any questions, comments, or data privacy requests regarding this policy, or if you would like to review or update the personal information you have shared with us, please reach out to our privacy desk:</p>
         <ul class="policy-contact-list">
           <li><strong>Email Address:</strong> <a href="mailto:skyyardsofficial@gmail.com">skyyardsofficial@gmail.com</a></li>
-          <li><strong>Office Location:</strong> <span>SKY YARDS, JHM Ace Commercial, Dohra Road, Bareilly, Uttar Pradesh &ndash; 243005</span></li>
+          <li><strong>Office Location:</strong> <span>National Highway, near Dohra road, Lalpur, Bareilly, Uttar Pradesh 243123</span></li>
           <li><strong>Phone Support:</strong> <span>+91 85340 26777 / +91 82180 95851</span></li>
         </ul>
       </div>
@@ -1641,28 +1624,7 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Dark / Light Theme Toggle
-const themeBtn = document.getElementById('themeToggleBtn');
-const themeLabel = document.getElementById('themeLabel');
-const themeIcon = document.getElementById('themeIcon');
-if (themeBtn) {
-  function updateThemeUI(isDark) {
-    if (themeLabel) themeLabel.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-    if (themeIcon) {
-      themeIcon.innerHTML = isDark
-        ? '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>'
-        : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
-    }
-  }
 
-  themeBtn.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme');
-    const isDark = current === 'dark' || (!current && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    const next = isDark ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    updateThemeUI(!isDark);
-  });
-}
 
 // Plot Size Interactive Selector
 function selectPlotSize(size) {
