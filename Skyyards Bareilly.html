@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Omaxe Bareilly | Plots and homes in Bareilly</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Figtree:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Playfair+Display:wght@600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Figtree:wght@400;500;600;700;800&display=swap">
 <style>
 :root{--bg:#f4f6f5;--ink:#14201f;--mute:#4d5f5c;--pine:#0f3b38;--pine-ink:#f4f6f5;--kite:#d6403a;--gold:#e8a317;--line:#cfd8d5;--card:#ffffff;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -667,6 +667,270 @@ table.grid td{border:1px solid var(--line);padding:14px}
   .policy-modal-footer {
     padding: 12px 16px;
   }
+}
+
+/* ==========================================================================
+   Enquiry Popup Modal (Omaxe City, Bareilly)
+   ========================================================================== */
+.enquiry-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.enquiry-modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.enquiry-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1.5px solid #E8A317;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  width: 100%;
+  max-width: 380px;
+  padding: 24px 20px 20px;
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  color: #111827;
+  transform: scale(0.92);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  box-sizing: border-box;
+}
+
+.enquiry-modal-backdrop.is-open .enquiry-card {
+  transform: scale(1);
+}
+
+.enquiry-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  color: #64748b;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.enquiry-close-btn:hover {
+  color: #0f172a;
+  transform: scale(1.15);
+}
+
+.enquiry-close-btn:focus-visible {
+  outline: 2px solid #E8A317;
+  outline-offset: 2px;
+}
+
+.enquiry-header-strip {
+  background: #0F3D38;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.enquiry-header-title {
+  color: #ffffff;
+  font-family: 'Playfair Display', 'Gloock', Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: 0.2px;
+}
+
+.enquiry-main-heading {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  margin: 0 0 6px 0;
+  line-height: 1.35;
+  font-family: 'Figtree', sans-serif;
+}
+
+.enquiry-address {
+  font-size: 13.5px;
+  color: #64748b;
+  text-align: center;
+  margin: 0 0 14px 0;
+  line-height: 1.45;
+}
+
+.enquiry-subheading {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  margin: 0 0 14px 0;
+  font-family: 'Figtree', sans-serif;
+}
+
+.enquiry-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.enquiry-field-group {
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.enquiry-input {
+  width: 100%;
+  background: #f4f5f7;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 14.5px;
+  font-family: 'Figtree', sans-serif;
+  color: #111827;
+  box-sizing: border-box;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.enquiry-input::placeholder {
+  color: #9ca3af;
+}
+
+.enquiry-input:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #E8A317;
+  box-shadow: 0 0 0 3px rgba(232, 163, 23, 0.18);
+}
+
+.enquiry-input.is-invalid {
+  border-color: #D6403B;
+  background: #fff8f8;
+}
+
+.enquiry-error-msg {
+  color: #D6403B;
+  font-size: 12px;
+  margin-top: 4px;
+  display: none;
+  line-height: 1.3;
+}
+
+.enquiry-error-msg.is-visible {
+  display: block;
+}
+
+.enquiry-consent-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 4px 0 16px 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.enquiry-consent-text {
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  color: #1f2937;
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.enquiry-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.enquiry-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: #0284c7;
+  cursor: pointer;
+  margin: 0;
+}
+
+.enquiry-submit-btn {
+  width: 100%;
+  background: #D6403B;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 13px 20px;
+  font-size: 15.5px;
+  font-weight: 700;
+  font-family: 'Figtree', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(214, 64, 59, 0.25);
+}
+
+.enquiry-submit-btn:hover {
+  background: #bf342f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(214, 64, 59, 0.35);
+}
+
+.enquiry-submit-btn:active {
+  transform: translateY(0);
+}
+
+.enquiry-privacy-wrap {
+  text-align: center;
+  margin-top: 14px;
+}
+
+.enquiry-privacy-link {
+  font-size: 12px;
+  color: #64748b;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.enquiry-privacy-link:hover {
+  color: #0F3D38;
+}
+
+.enquiry-success-view {
+  text-align: center;
+  padding: 24px 8px 16px;
+}
+
+.enquiry-success-icon {
+  margin-bottom: 14px;
+}
+
+.enquiry-success-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0F3D38;
+  margin: 0 0 8px 0;
+  font-family: 'Playfair Display', 'Gloock', serif;
+}
+
+.enquiry-success-text {
+  font-size: 14px;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.5;
 }
 </style>
 </head>
@@ -1621,6 +1885,68 @@ logoImg.style.transform='';
   </div>
 </div>
 
+<!-- Enquiry Popup (Modal) -->
+<div class="enquiry-modal-backdrop" id="enquiryModal" role="dialog" aria-modal="true" aria-labelledby="enquiryModalTitle" aria-hidden="true">
+  <div class="enquiry-card" id="enquiryCard">
+    <button type="button" class="enquiry-close-btn" id="enquiryCloseBtn" aria-label="Close enquiry popup">&times;</button>
+    
+    <div id="enquiryFormView">
+      <div class="enquiry-header-strip">
+        <h3 id="enquiryModalTitle" class="enquiry-header-title">Omaxe City, Bareilly</h3>
+      </div>
+      
+      <h4 class="enquiry-main-heading">72+ Acre Integrated Township</h4>
+      
+      <p class="enquiry-address">
+        Lalpur, Near Dohra Road Delhi-Lucknow<br>
+        Expressway, Bareilly
+      </p>
+      
+      <div class="enquiry-subheading">Enquire now</div>
+      
+      <form id="enquiryForm" class="enquiry-form" novalidate>
+        <div class="enquiry-field-group">
+          <input type="text" id="enquiryName" name="name" class="enquiry-input" placeholder="Full name" autocomplete="name" required>
+          <div class="enquiry-error-msg" id="enquiryNameError" role="alert"></div>
+        </div>
+        
+        <div class="enquiry-field-group">
+          <input type="tel" id="enquiryPhone" name="phone" class="enquiry-input" placeholder="Phone" autocomplete="tel" maxlength="10" inputmode="numeric" required>
+          <div class="enquiry-error-msg" id="enquiryPhoneError" role="alert"></div>
+        </div>
+        
+        <div class="enquiry-consent-group">
+          <label class="enquiry-consent-group" for="enquiryConsent" style="margin:0;width:100%">
+            <span class="enquiry-consent-text">I agree to be contacted about this project</span>
+            <span class="enquiry-checkbox-wrapper">
+              <input type="checkbox" id="enquiryConsent" name="consent" class="enquiry-checkbox" checked required>
+            </span>
+          </label>
+          <div class="enquiry-error-msg" id="enquiryConsentError" role="alert" style="text-align:center"></div>
+        </div>
+        
+        <button type="submit" class="enquiry-submit-btn" id="enquirySubmitBtn">Submit</button>
+      </form>
+      
+      <div class="enquiry-privacy-wrap">
+        <a href="#privacy-policy" class="enquiry-privacy-link" id="enquiryPrivacyLink">Privacy Policy</a>
+      </div>
+    </div>
+    
+    <!-- Success View -->
+    <div id="enquirySuccessView" class="enquiry-success-view" style="display:none;" aria-live="polite">
+      <div class="enquiry-success-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0F3D38" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" fill="#e6f4ea" stroke="#0F3D38"></circle>
+          <polyline points="8 12 11 15 16 9"></polyline>
+        </svg>
+      </div>
+      <h3 class="enquiry-success-title">Thank you!</h3>
+      <p class="enquiry-success-text">We'll contact you shortly regarding Omaxe City, Bareilly.</p>
+    </div>
+  </div>
+</div>
+
 <script>
 // Lightbox Data & Logic
 const overviewCollageItems = [
@@ -2105,6 +2431,245 @@ const NOTICE_REAPPEAR_DAYS = 30; // Number of days to remember dismissal before 
   // Open modal if page loads with #privacy or #privacy-policy hash
   if (window.location.hash === '#privacy-policy' || window.location.hash === '#privacy') {
     openPrivacyModal();
+  }
+})();
+</script>
+
+<script>
+// ==========================================================================
+// Enquiry Popup (Modal) Controller
+// ==========================================================================
+(function() {
+  const modal = document.getElementById('enquiryModal');
+  if (!modal) return;
+
+  const card = document.getElementById('enquiryCard');
+  const closeBtn = document.getElementById('enquiryCloseBtn');
+  const form = document.getElementById('enquiryForm');
+  const formView = document.getElementById('enquiryFormView');
+  const successView = document.getElementById('enquirySuccessView');
+  const nameInput = document.getElementById('enquiryName');
+  const phoneInput = document.getElementById('enquiryPhone');
+  const consentInput = document.getElementById('enquiryConsent');
+  const nameError = document.getElementById('enquiryNameError');
+  const phoneError = document.getElementById('enquiryPhoneError');
+  const consentError = document.getElementById('enquiryConsentError');
+  const privacyLink = document.getElementById('enquiryPrivacyLink');
+
+  let hasOpenedThisLoad = false;
+  let isOpen = false;
+  let autoCloseTimer = null;
+  let previousActiveElement = null;
+
+  // Real-time phone number sanitization (digits only, max 10 digits)
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '').slice(0, 10);
+      if (phoneError.classList.contains('is-visible')) {
+        validatePhone();
+      }
+    });
+  }
+
+  if (nameInput) {
+    nameInput.addEventListener('input', function() {
+      if (nameError.classList.contains('is-visible')) {
+        validateName();
+      }
+    });
+  }
+
+  if (consentInput) {
+    consentInput.addEventListener('change', function() {
+      if (consentError.classList.contains('is-visible')) {
+        validateConsent();
+      }
+    });
+  }
+
+  function validateName() {
+    const val = nameInput.value.trim();
+    if (!val) {
+      showError(nameInput, nameError, 'Please enter your full name');
+      return false;
+    }
+    if (val.length < 2) {
+      showError(nameInput, nameError, 'Name must be at least 2 characters');
+      return false;
+    }
+    clearError(nameInput, nameError);
+    return true;
+  }
+
+  function validatePhone() {
+    const val = phoneInput.value.trim();
+    if (!val) {
+      showError(phoneInput, phoneError, 'Please enter your mobile number');
+      return false;
+    }
+    // Indian 10-digit mobile number starting with 6, 7, 8, or 9
+    const indianPhoneRegex = /^[6-9]\d{9}$/;
+    if (!indianPhoneRegex.test(val)) {
+      showError(phoneInput, phoneError, 'Please enter a valid 10-digit mobile number');
+      return false;
+    }
+    clearError(phoneInput, phoneError);
+    return true;
+  }
+
+  function validateConsent() {
+    if (!consentInput.checked) {
+      showError(consentInput, consentError, 'Please agree to be contacted to proceed');
+      return false;
+    }
+    clearError(consentInput, consentError);
+    return true;
+  }
+
+  function showError(inputEl, errorEl, msg) {
+    if (inputEl && inputEl.classList) inputEl.classList.add('is-invalid');
+    if (errorEl) {
+      errorEl.textContent = msg;
+      errorEl.classList.add('is-visible');
+    }
+  }
+
+  function clearError(inputEl, errorEl) {
+    if (inputEl && inputEl.classList) inputEl.classList.remove('is-invalid');
+    if (errorEl) {
+      errorEl.textContent = '';
+      errorEl.classList.remove('is-visible');
+    }
+  }
+
+  function showPopup() {
+    if (hasOpenedThisLoad || isOpen) return;
+    hasOpenedThisLoad = true;
+    isOpen = true;
+    previousActiveElement = document.activeElement;
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Move focus into popup on open for accessibility
+    setTimeout(function() {
+      if (nameInput) nameInput.focus();
+    }, 100);
+  }
+
+  function closePopup() {
+    if (!isOpen) return;
+    isOpen = false;
+    if (autoCloseTimer) clearTimeout(autoCloseTimer);
+
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+
+    if (previousActiveElement && typeof previousActiveElement.focus === 'function') {
+      previousActiveElement.focus();
+    }
+  }
+
+  /**
+   * Placeholder function to transmit form submission data.
+   * Connect this to your backend API, Google Apps Script / Google Sheets, Webhook, or WhatsApp.
+   *
+   * @param {Object} data - { name: string, phone: string, consent: boolean, timestamp: string }
+   */
+  function handleEnquirySubmit(data) {
+    console.log('[Omaxe Enquiry Submitted]:', data);
+
+    // 1. Google Sheets Webhook Integration Example:
+    // fetch('https://script.google.com/macros/s/YOUR_GOOGLE_APPS_SCRIPT_ID/exec', {
+    //   method: 'POST',
+    //   mode: 'no-cors',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(data)
+    // }).catch(err => console.error('Enquiry sheet sync error:', err));
+
+    // 2. Custom Backend API Integration Example:
+    // fetch('/api/leads', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(data)
+    // }).catch(err => console.error('API lead sync error:', err));
+
+    // 3. WhatsApp Direct Notification Example:
+    // const waMessage = encodeURIComponent(`Hello Omaxe City Bareilly,\nI would like to enquire about plots.\nName: ${data.name}\nPhone: ${data.phone}`);
+    // window.open(`https://wa.me/91XXXXXXXXXX?text=${waMessage}`, '_blank');
+  }
+
+  // Handle Form Submission
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const isNameValid = validateName();
+      const isPhoneValid = validatePhone();
+      const isConsentValid = validateConsent();
+
+      if (!isNameValid || !isPhoneValid || !isConsentValid) {
+        return;
+      }
+
+      const formData = {
+        name: nameInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        consent: consentInput.checked,
+        timestamp: new Date().toISOString()
+      };
+
+      // Call placeholder handler
+      handleEnquirySubmit(formData);
+
+      // Transition to Thank you view
+      if (formView && successView) {
+        formView.style.display = 'none';
+        successView.style.display = 'block';
+      }
+
+      // Auto-close popup after 3 seconds
+      autoCloseTimer = setTimeout(function() {
+        closePopup();
+      }, 3000);
+    });
+  }
+
+  // Close triggers
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closePopup);
+  }
+
+  // Backdrop click closes popup
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closePopup();
+    }
+  });
+
+  // ESC key closes popup
+  document.addEventListener('keydown', function(e) {
+    if ((e.key === 'Escape' || e.key === 'Esc') && isOpen) {
+      closePopup();
+    }
+  });
+
+  // Privacy Policy link smoothly closes enquiry modal to reveal policy modal
+  if (privacyLink) {
+    privacyLink.addEventListener('click', function() {
+      closePopup();
+    });
+  }
+
+  // Timer: automatically opens 5 seconds after DOM content is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(showPopup, 5000);
+    });
+  } else {
+    setTimeout(showPopup, 5000);
   }
 })();
 </script>
