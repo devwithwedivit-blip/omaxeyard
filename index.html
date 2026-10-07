@@ -981,6 +981,24 @@ table.grid td{border:1px solid var(--line);padding:14px}
     </div>
   </div>
 
+  <div class="hero-plot-banner hero-villa-banner">
+    <div class="hero-plot-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9.5z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </div>
+    <div class="hero-plot-content">
+      <div class="hero-plot-label">Limited Edition Residential Villas</div>
+      <div class="hero-plot-sizes-row">
+        <span>Villa Sizes:</span>
+        <span class="hero-plot-tag">132</span>
+        <span class="plot-sep">|</span>
+        <span class="hero-plot-tag">160</span>
+        <span class="plot-sep">|</span>
+        <span class="hero-plot-tag">200</span>
+        <span class="plot-unit">Sq. Yards</span>
+      </div>
+    </div>
+  </div>
+
   <div class="hero-points">
     <div class="hero-point-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Lalpur-Bareilly, Delhi–Lucknow Expressway</div>
     <div class="hero-point-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Integrated Township</div>
@@ -1448,7 +1466,15 @@ Located right on the Delhi–Lucknow Expressway at Lalpur, Omaxe City Bareilly o
 <section id="price"><div class="container wrap">
 <h2 class="sh">Price Plan &amp; Configurations</h2>
 <div class="pricing-two-col">
-<div class="pricing-table-col scroll"><table class="pricing-table">
+<div class="pricing-table-col scroll">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:10px">
+      <span style="background:rgba(214,64,58,0.1);color:var(--kite);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px">Plots &amp; SCOs</span>
+      <h3 style="font-family:Gloock,serif;font-size:19px;color:var(--ink);margin:0">Residential Plots &amp; Commercial Spaces</h3>
+    </div>
+    <span style="font-size:13px;font-weight:700;color:var(--pine);background:rgba(15,59,56,0.08);padding:4px 12px;border-radius:6px;border:1px solid rgba(15,59,56,0.15)">117 | 132 | 200 | 240 | 300 Sq. Yards</span>
+  </div>
+  <table class="pricing-table">
 <thead><tr><th>Property Type</th><th>Plot Area</th><th>Pricing</th><th>Action</th></tr></thead>
 <tbody>
 <tr><td>Residential Plot</td><td><strong>117 Sq. Yards</strong> (~1,053 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('117 Sq. Yards')">Enquire</button></td></tr>
@@ -1457,7 +1483,49 @@ Located right on the Delhi–Lucknow Expressway at Lalpur, Omaxe City Bareilly o
 <tr><td>Residential Plot</td><td><strong>240 Sq. Yards</strong> (~2,160 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('240 Sq. Yards')">Enquire</button></td></tr>
 <tr><td>Residential Plot</td><td><strong>300 Sq. Yards</strong> (~2,700 sq. ft.)</td><td><span class="tbd">On Request</span></td><td><button class="btn sm" onclick="selectPlotSize('300 Sq. Yards')">Enquire</button></td></tr>
 <tr><td>Commercial Space</td><td>High-Street Retail &amp; SCOs</td><td><span class="tbd">On Request</span></td><td><a class="btn sm" href="#f">Enquire</a></td></tr>
-</tbody></table></div>
+</tbody></table>
+
+  <!-- Limited Edition Residential Villas Configuration Table -->
+  <div class="villas-pricing-block" style="margin-top:28px;padding-top:22px;border-top:1px dashed var(--line)">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="background:rgba(214,64,58,0.1);color:var(--kite);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:999px">Limited Edition</span>
+        <h3 style="font-family:Gloock,serif;font-size:19px;color:var(--ink);margin:0">Residential Villas Configuration</h3>
+      </div>
+      <span style="font-size:13px;font-weight:700;color:var(--pine);background:rgba(15,59,56,0.08);padding:4px 12px;border-radius:6px;border:1px solid rgba(15,59,56,0.15)">132 | 160 | 200 Sq. Yards</span>
+    </div>
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Property Type</th>
+          <th>Villa Area</th>
+          <th>Pricing</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Residential Villa</td>
+          <td><strong>132 Sq. Yards</strong> (~1,188 sq. ft.)</td>
+          <td><span class="tbd">On Request</span></td>
+          <td><button class="btn sm" onclick="selectPlotSize('132 Sq. Yards Villa')">Enquire</button></td>
+        </tr>
+        <tr>
+          <td>Residential Villa</td>
+          <td><strong>160 Sq. Yards</strong> (~1,440 sq. ft.)</td>
+          <td><span class="tbd">On Request</span></td>
+          <td><button class="btn sm" onclick="selectPlotSize('160 Sq. Yards Villa')">Enquire</button></td>
+        </tr>
+        <tr>
+          <td>Residential Villa</td>
+          <td><strong>200 Sq. Yards</strong> (~1,800 sq. ft.)</td>
+          <td><span class="tbd">On Request</span></td>
+          <td><button class="btn sm" onclick="selectPlotSize('200 Sq. Yards Villa')">Enquire</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 <div class="pricing-right-col">
 <div class="payment-plans-card">
   <h3 class="payment-card-title">Transparent Payment Plans</h3>
@@ -2177,7 +2245,8 @@ function selectPlotSize(size) {
       note.style.cssText = 'background:var(--pine);color:#fff;padding:8px 12px;border-radius:4px;font-size:13.5px;font-weight:600;margin-bottom:6px;text-align:center;border:1px solid rgba(255,255,255,0.2)';
       form.insertBefore(note, form.children[3]);
     }
-    note.innerHTML = 'Selected Plot Size: <b style="color:var(--gold)">' + size + '</b>';
+    const label = size.toLowerCase().includes('villa') ? 'Selected Villa Size' : 'Selected Plot Size';
+    note.innerHTML = label + ': <b style="color:var(--gold)">' + size + '</b>';
     form.scrollIntoView({ behavior: 'smooth', block: 'center' });
     const nameInput = form.querySelector('input[name="n"]');
     if (nameInput) setTimeout(() => nameInput.focus(), 450);
