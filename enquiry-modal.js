@@ -656,6 +656,9 @@
     // Ignore clicks inside the enquiry modal itself
     if (trigger.closest('#enquiryModal')) return;
 
+    // Ignore WhatsApp Call-to-Action buttons (handled by WhatsApp controller)
+    if (trigger.closest('[data-wa-context]')) return;
+
     // Ignore submission of the inline hero search/lead card (<form id="f">)
     if (trigger.type === 'submit' && trigger.closest('form#f')) return;
 
@@ -698,6 +701,16 @@
    * Backward-compatibility for existing onclick="selectPlotSize('...')" handlers
    */
   window.selectPlotSize = function(size) {
+    if (typeof window.buildWhatsAppUrl === 'function' && typeof window.isValidWhatsAppNumber === 'function' && window.isValidWhatsAppNumber(window.WHATSAPP_NUMBER)) {
+      if (typeof window.closeEnquiryModal === 'function') window.closeEnquiryModal();
+      let prop = size;
+      if (!prop.toLowerCase().includes('residential') && !prop.toLowerCase().includes('commercial')) {
+        const isVilla = prop.toLowerCase().includes('villa');
+        prop = `${prop} ${isVilla ? 'residential villa' : 'residential plot'}`;
+      }
+      window.open(window.buildWhatsAppUrl(prop), '_blank', 'noopener,noreferrer');
+      return;
+    }
     let prop = size;
     if (!prop.toLowerCase().includes('residential') && !prop.toLowerCase().includes('commercial')) {
       const isVilla = prop.toLowerCase().includes('villa');
