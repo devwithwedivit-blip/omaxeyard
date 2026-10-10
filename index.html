@@ -807,7 +807,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
 <a class="logo" href="#top" aria-label="Omaxe Bareilly"><img src="omaxe-logo.png" alt="Omaxe - Turning dreams into reality"></a>
 <nav id="mainNav" aria-label="Main"><a href="#overview">Overview</a><a href="#about-omaxe">About Omaxe</a><a href="#presence">Presence</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#plans">Floor plans</a><a href="#location">Location</a><a href="#enquire">Contact</a></nav>
 <div class="header-actions">
-<a class="btn alt sm" href="#enquire">Brochure</a>
+<a class="btn alt sm enquiry-btn" href="https://wa.me/918534026777?text=Hi%2C%20please%20share%20the%20project%20brochure%20and%20layout%20plans%20for%20Omaxe%20City%2C%20Bareilly." data-wa-context="project brochure" target="_blank" rel="noopener noreferrer" aria-label="Get project brochure on WhatsApp">GET BROCHURE</a>
 <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
   <span class="nav-toggle-bar"></span>
   <span class="nav-toggle-bar"></span>
@@ -2148,6 +2148,8 @@ function buildWhatsAppUrl(context) {
 
   if (lower === 'detailed cost sheet' || lower.includes('cost sheet')) {
     message = `Hi, please share the detailed cost sheet and payment plans for ${PROJECT_NAME}.`;
+  } else if (lower === 'project brochure' || lower.includes('brochure')) {
+    message = `Hi, please share the project brochure and layout plans for ${PROJECT_NAME}.`;
   } else if (!ctx || lower === 'general enquiry' || lower === 'general') {
     message = `Hi, I'd like to know more about ${PROJECT_NAME}.`;
   } else {
@@ -2213,6 +2215,7 @@ function extractContextFromMarkup(el) {
   // 3. Fallback based on text
   const text = (el.textContent || '').trim().toLowerCase();
   if (text.includes('cost sheet')) return 'detailed cost sheet';
+  if (text.includes('brochure')) return 'project brochure';
   if (text.includes('plot')) return 'residential plots';
   return 'general enquiry';
 }
@@ -2260,7 +2263,7 @@ function scanAndInitAllCTAs() {
 
   document.querySelectorAll('a, button').forEach(el => {
     const text = (el.textContent || '').trim();
-    if (/enquir|cost sheet/i.test(text)) {
+    if (/enquir|cost sheet|brochure/i.test(text)) {
       initWhatsAppCTA(el);
     }
   });

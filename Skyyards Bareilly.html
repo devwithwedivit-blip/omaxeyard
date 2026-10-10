@@ -163,7 +163,7 @@ footer p{margin:0;max-width:60ch;opacity:.85;line-height:1.6}
   .payment-plans-card{position:static;top:auto}
   .overview-sidebar{position:static!important;top:auto!important}
   .about-omaxe-grid{grid-template-columns:1fr;gap:28px}
-  .presence-frame-card iframe{height:1140px}
+  .presence-frame-card iframe{height:940px}
   .leadership-frame-card iframe{height:1280px}
   section{padding:clamp(48px,6vw,68px) 0}
 }
@@ -184,7 +184,7 @@ footer p{margin:0;max-width:60ch;opacity:.85;line-height:1.6}
   .cta .wrap,.cta .container{flex-direction:column;text-align:center;gap:16px}
   .cta p{text-align:center;font-size:20px}
   .cta .btn{width:100%;max-width:320px;text-align:center}
-  .presence-frame-card iframe{height:1180px}
+  .presence-frame-card iframe{height:640px}
   .leadership-frame-card iframe{height:1720px}
   footer .wrap{flex-direction:column;gap:14px}
 }
@@ -267,7 +267,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
 .lightbox-btn:hover{background:rgba(255,255,255,0.3);transform:scale(1.08)}
 .lightbox-stage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;padding:12px 60px;user-select:none}
 .lightbox-img-wrapper{max-width:90vw;max-height:72vh;position:relative;display:flex;align-items:center;justify-content:center}
-.lightbox-img{max-width:100%;max-height:72vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 50px rgba(0,0,0,0.6);opacity:0;transform:scale(0.96);transition:opacity 0.3s cubic-bezier(0.2,0.8,0.2,1),transform 0.3s cubic-bezier(0.2,0.8,0.2,1)}
+.lightbox-img{max-width:100%;max-height:72vh;object-fit:contain;border-radius:8px;box-shadow:0 20px 50px rgba(0,0,0,0.6);opacity:0;transform:scale(0.96);transition:opacity 0.3s cubic-bezier(0.2,0.8,0.2,1),transform 0.3s cubic-bezier(0.2,0.8,0.2,1);cursor:zoom-in}
 .lightbox-img.loaded{opacity:1;transform:scale(1)}
 .lightbox-img.is-zoomed{transform:scale(1.85);cursor:zoom-out;box-shadow:0 30px 80px rgba(0,0,0,0.8);z-index:20}
 
@@ -807,7 +807,7 @@ table.grid td{border:1px solid var(--line);padding:14px}
 <a class="logo" href="#top" aria-label="Omaxe Bareilly"><img src="omaxe-logo.png" alt="Omaxe - Turning dreams into reality"></a>
 <nav id="mainNav" aria-label="Main"><a href="#overview">Overview</a><a href="#about-omaxe">About Omaxe</a><a href="#presence">Presence</a><a href="#amenities">Amenities</a><a href="#gallery">Gallery</a><a href="#plans">Floor plans</a><a href="#location">Location</a><a href="#enquire">Contact</a></nav>
 <div class="header-actions">
-<a class="btn alt sm" href="#enquire">Brochure</a>
+<a class="btn alt sm enquiry-btn" href="https://wa.me/918534026777?text=Hi%2C%20please%20share%20the%20project%20brochure%20and%20layout%20plans%20for%20Omaxe%20City%2C%20Bareilly." data-wa-context="project brochure" target="_blank" rel="noopener noreferrer" aria-label="Get project brochure on WhatsApp">GET BROCHURE</a>
 <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mainNav">
   <span class="nav-toggle-bar"></span>
   <span class="nav-toggle-bar"></span>
@@ -2148,6 +2148,8 @@ function buildWhatsAppUrl(context) {
 
   if (lower === 'detailed cost sheet' || lower.includes('cost sheet')) {
     message = `Hi, please share the detailed cost sheet and payment plans for ${PROJECT_NAME}.`;
+  } else if (lower === 'project brochure' || lower.includes('brochure')) {
+    message = `Hi, please share the project brochure and layout plans for ${PROJECT_NAME}.`;
   } else if (!ctx || lower === 'general enquiry' || lower === 'general') {
     message = `Hi, I'd like to know more about ${PROJECT_NAME}.`;
   } else {
@@ -2213,6 +2215,7 @@ function extractContextFromMarkup(el) {
   // 3. Fallback based on text
   const text = (el.textContent || '').trim().toLowerCase();
   if (text.includes('cost sheet')) return 'detailed cost sheet';
+  if (text.includes('brochure')) return 'project brochure';
   if (text.includes('plot')) return 'residential plots';
   return 'general enquiry';
 }
@@ -2260,7 +2263,7 @@ function scanAndInitAllCTAs() {
 
   document.querySelectorAll('a, button').forEach(el => {
     const text = (el.textContent || '').trim();
-    if (/enquir|cost sheet/i.test(text)) {
+    if (/enquir|cost sheet|brochure/i.test(text)) {
       initWhatsAppCTA(el);
     }
   });
