@@ -383,3 +383,17 @@
     font-size: 15.5px;
   }
 }
+
+/* Secondary "Send via Email" button */
+.enquiry-email-btn {
+  margin-top: 10px;
+  background: #ffffff;
+  color: #0F3D38;
+  border: 1.5px solid #0F3D38;
+  box-shadow: none;
+}
+.enquiry-email-btn:hover:not(:disabled) {
+  background: #0F3D38;
+  color: #ffffff;
+  box-shadow: none;
+}

@@ -886,7 +886,8 @@ table.grid td{border:1px solid var(--line);padding:14px}
 <input name="n" placeholder="Full name" required autocomplete="name" aria-label="Full name">
 <input name="p" type="tel" placeholder="Phone" required autocomplete="tel" aria-label="Phone">
 <label class="chk"><input type="checkbox" required checked> I agree to be contacted about this project</label>
-<button class="btn" type="submit">Submit</button>
+<button class="btn" type="submit" value="whatsapp">Send on WhatsApp</button>
+<button class="btn alt" type="submit" value="email">Send via Email</button>
 <div style="margin-top:4px;font-size:12px;text-align:center">
   <a href="#privacy-policy" class="privacy-modal-btn" style="color:var(--mute);text-decoration:underline;cursor:pointer;font-weight:500">Privacy Policy</a>
 </div>
@@ -1902,9 +1903,14 @@ Open in Maps <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke=
 document.getElementById('f').addEventListener('submit',function(e){
 e.preventDefault();
 var d=new FormData(e.target);
-var num='918534026777';
-var msg='Hello, I am '+d.get('n')+' ('+d.get('p')+'). I am interested in: '+(d.get('t')?d.get('t')+' at ':'')+'Omaxe Bareilly.';
-window.open('https://wa.me/'+num+'?text='+encodeURIComponent(msg),'_blank');
+var channel=(e.submitter&&e.submitter.value==='email')?'email':'whatsapp';
+var lines=['Hello Omaxe City Bareilly,','I would like to enquire about: '+(d.get('t')?d.get('t')+' at ':'')+'Omaxe City, Bareilly','','Name: '+d.get('n'),'Phone: '+d.get('p'),'Page: '+window.location.href];
+if(channel==='email'){
+window.location.href='mailto:info@omaxebareilly.co.in?subject='+encodeURIComponent('Enquiry: Omaxe City, Bareilly - '+d.get('n'))+'&body='+encodeURIComponent(lines.join('\n'));
+}else{
+var url='https://wa.me/918534026777?text='+encodeURIComponent(lines.join('\n'));
+if(!window.open(url,'_blank'))window.location.href=url;
+}
 });
 var logo=document.querySelector('.logo');
 var logoImg=document.querySelector('.logo img');
@@ -2081,10 +2087,11 @@ logoImg.style.transform='';
         </div>
         
         <!-- Submit Button -->
-        <button type="submit" class="enquiry-submit-btn" id="enquirySubmitBtn">
-          <span class="enquiry-btn-text" id="enquirySubmitBtnText">Submit Enquiry</span>
+        <button type="submit" class="enquiry-submit-btn" id="enquirySubmitBtn" value="whatsapp">
+          <span class="enquiry-btn-text" id="enquirySubmitBtnText">Send on WhatsApp</span>
           <span class="enquiry-btn-spinner" id="enquirySubmitSpinner" style="display:none;" aria-hidden="true"></span>
         </button>
+        <button type="submit" class="enquiry-submit-btn enquiry-email-btn" id="enquiryEmailBtn" value="email">Send via Email</button>
         
         <!-- Alert Error (Submission Failure) -->
         <div class="enquiry-alert-error" id="enquiryAlertError" style="display:none;" role="alert">

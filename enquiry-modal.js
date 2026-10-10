@@ -31,7 +31,13 @@
      * Optional WhatsApp notification: Set a 10-12 digit phone number (e.g. '919876543210')
      * to open WhatsApp chat upon submission, or leave empty ('') to disable.
      */
-    whatsappNumber: '',
+    whatsappNumber: '918534026777',
+
+    /**
+     * Email address that receives enquiries via the "Send via Email" button
+     * (opens the visitor's own mail app with a pre-filled message).
+     */
+    enquiryEmail: 'info@omaxebareilly.co.in',
 
     /**
      * Delay in milliseconds before automatically closing the popup on success.
@@ -99,10 +105,11 @@
               </div>
               
               <!-- Submit Button -->
-              <button type="submit" class="enquiry-submit-btn" id="enquirySubmitBtn">
-                <span class="enquiry-btn-text" id="enquirySubmitBtnText">Submit Enquiry</span>
+              <button type="submit" class="enquiry-submit-btn" id="enquirySubmitBtn" value="whatsapp">
+                <span class="enquiry-btn-text" id="enquirySubmitBtnText">Send on WhatsApp</span>
                 <span class="enquiry-btn-spinner" id="enquirySubmitSpinner" style="display:none;" aria-hidden="true"></span>
               </button>
+              <button type="submit" class="enquiry-submit-btn enquiry-email-btn" id="enquiryEmailBtn" value="email">Send via Email</button>
               
               <!-- Alert Error (Submission Failure) -->
               <div class="enquiry-alert-error" id="enquiryAlertError" style="display:none;" role="alert">
@@ -452,12 +459,46 @@
   }
 
   /**
+   * Opens WhatsApp chat or the visitor's mail app with the enquiry pre-filled.
+   * @param {Object} payload { name, phone, property, pageUrl }
+   * @param {'whatsapp'|'email'} channel
+   */
+  function openEnquiryChannel(payload, channel) {
+    const lines = [
+      'Hello Omaxe City Bareilly,',
+      'I would like to enquire about: ' + payload.property,
+      '',
+      'Name: ' + payload.name,
+      'Phone: ' + payload.phone,
+      'Page: ' + payload.pageUrl
+    ];
+    try {
+      if (channel === 'email' && ENQUIRY_CONFIG.enquiryEmail) {
+        const subject = 'Enquiry: ' + payload.property + ' - ' + payload.name;
+        window.location.href = 'mailto:' + ENQUIRY_CONFIG.enquiryEmail +
+          '?subject=' + encodeURIComponent(subject) +
+          '&body=' + encodeURIComponent(lines.join('\n'));
+      } else if (ENQUIRY_CONFIG.whatsappNumber) {
+        const url = 'https://wa.me/' + ENQUIRY_CONFIG.whatsappNumber + '?text=' + encodeURIComponent(lines.join('\n'));
+        const win = window.open(url, '_blank');
+        if (!win) window.location.href = url;
+      }
+    } catch (err) {
+      console.warn('Enquiry channel launch error:', err);
+    }
+  }
+  window.openEnquiryChannel = openEnquiryChannel;
+
+  /**
    * Transmits the enquiry payload to backend / Google Sheet / Webhook / WhatsApp
    * @param {Object} payload { name, phone, property, pageUrl, timestamp }
    * @returns {Promise<boolean>}
    */
-  async function submitEnquiryPayload(payload) {
+  async function submitEnquiryPayload(payload, channel) {
     console.log('[Enquiry Submitted Payload]:', payload);
+
+    // Open WhatsApp / email synchronously (before any await) so popup blockers allow it
+    openEnquiryChannel(payload, channel);
 
     // 1. If an API or Google Sheets Webhook endpoint is configured
     if (ENQUIRY_CONFIG.endpointUrl && ENQUIRY_CONFIG.endpointUrl.trim()) {
@@ -588,6 +629,8 @@
           return;
         }
 
+        const channel = (e.submitter && e.submitter.value === 'email') ? 'email' : 'whatsapp';
+
         const rawPhone = phoneInput.value.trim();
         const cleanPhone = sanitizePhone(rawPhone);
         const propertyName = document.getElementById('enquiryProperty')?.value || ENQUIRY_CONFIG.defaultPropertyName;
@@ -603,11 +646,13 @@
 
         // Disable submit button & show loading state
         if (submitBtn) submitBtn.disabled = true;
-        if (btnText) btnText.textContent = 'Submitting Enquiry...';
+        const emailBtn = document.getElementById('enquiryEmailBtn');
+        if (emailBtn) emailBtn.disabled = true;
+        if (btnText) btnText.textContent = channel === 'email' ? 'Opening Email...' : 'Opening WhatsApp...';
         if (spinner) spinner.style.display = 'inline-block';
 
         try {
-          await submitEnquiryPayload(payload);
+          await submitEnquiryPayload(payload, channel);
 
           // Success State
           const formView = document.getElementById('enquiryFormView');
@@ -638,7 +683,8 @@
             alertError.style.display = 'block';
           }
           if (submitBtn) submitBtn.disabled = false;
-          if (btnText) btnText.textContent = 'Submit Enquiry';
+          if (emailBtn) emailBtn.disabled = false;
+          if (btnText) btnText.textContent = 'Send on WhatsApp';
           if (spinner) spinner.style.display = 'none';
         }
       });
