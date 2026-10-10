@@ -490,6 +490,48 @@
   window.openEnquiryChannel = openEnquiryChannel;
 
   /**
+   * Builds a WhatsApp message from the tapped listing (card / table row) and
+   * opens the chat directly, without showing the enquiry form.
+   */
+  function sendDirectEnquiry(triggerEl) {
+    const clean = t => (t || '').replace(/\s+/g, ' ').trim();
+    const lines = ['Hello Omaxe City Bareilly,', 'I would like to enquire about:', ''];
+    const card = triggerEl.closest('.plot-spec-card');
+    const tr = triggerEl.closest('tr');
+
+    if (card) {
+      const badge = clean(card.querySelector('.plot-spec-badge')?.textContent);
+      const num = clean(card.querySelector('.plot-size-num')?.textContent);
+      const unit = clean(card.querySelector('.plot-size-unit')?.textContent);
+      const metric = clean(card.querySelector('.plot-metric-sub')?.textContent);
+      lines.push('*' + extractPropertyName(triggerEl) + '*');
+      if (badge) lines.push(badge);
+      if (num) lines.push('Size: ' + num + ' ' + unit + (metric ? ' (' + metric + ')' : ''));
+      card.querySelectorAll('.plot-features-list li').forEach(li => lines.push('- ' + clean(li.textContent)));
+    } else if (tr) {
+      const table = tr.closest('table');
+      const heads = table ? Array.from(table.querySelectorAll('thead th')).map(th => clean(th.textContent)) : [];
+      lines.push('*' + extractPropertyName(triggerEl) + '*');
+      tr.querySelectorAll('td').forEach((td, i) => {
+        if (td.querySelector('button, a')) return;
+        const val = clean(td.textContent);
+        if (val) lines.push((heads[i] ? heads[i] + ': ' : '') + val);
+      });
+    } else {
+      lines.push('*' + extractPropertyName(triggerEl) + '*');
+    }
+
+    lines.push('', 'Location: Lalpur, Near Dohra Road, Delhi-Lucknow Expressway, Bareilly');
+    lines.push('Page: ' + window.location.href);
+    lines.push('', 'Please share price, availability and site visit details.');
+
+    const url = 'https://wa.me/' + ENQUIRY_CONFIG.whatsappNumber + '?text=' + encodeURIComponent(lines.join('\n'));
+    const win = window.open(url, '_blank');
+    if (!win) window.location.href = url;
+  }
+  window.sendDirectEnquiry = sendDirectEnquiry;
+
+  /**
    * Transmits the enquiry payload to backend / Google Sheet / Webhook / WhatsApp
    * @param {Object} payload { name, phone, property, pageUrl, timestamp }
    * @returns {Promise<boolean>}
@@ -721,8 +763,8 @@
 
     if (hasClass || hasData || hasOnclick || isEnquiryHref || textMatches) {
       e.preventDefault();
-      const propName = extractPropertyName(trigger);
-      openEnquiryModal(propName, trigger);
+      // One tap: open WhatsApp directly with the listing details prefilled
+      sendDirectEnquiry(trigger);
     }
   });
 
