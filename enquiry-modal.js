@@ -662,6 +662,9 @@
     // Ignore submission of the inline hero search/lead card (<form id="f">)
     if (trigger.type === 'submit' && trigger.closest('form#f')) return;
 
+    // Ignore top utility / main navigation bar links
+    if (trigger.closest('#mainNav, nav')) return;
+
     // Check if element is an enquiry trigger
     const hasClass = trigger.classList.contains('enquiry-btn') || 
                      trigger.classList.contains('plot-select-btn');
